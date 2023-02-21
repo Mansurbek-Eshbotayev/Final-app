@@ -17,7 +17,10 @@ import {
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { DeleteIcon, EditIcon } from "../../assets/images/Icons";
-import { GlobalDeletModal, GlobalModal } from "../../assets/styles/AppGlobalCss";
+import {
+  GlobalDeletModal,
+  GlobalModal,
+} from "../../assets/styles/AppGlobalCss";
 import { Modal } from "../../components/Modal/Modal";
 import {
   CarouselLabelfirstSpan,
@@ -55,34 +58,31 @@ import {
   ProductWrapModal,
 } from "./ProductStyle.js";
 
-
 export const Product = () => {
   const [categoryModal, setCategoryModal] = useState(false);
-  const [secondModal, setSeconModal] = useState(false)
-  const [editModal, setEditModal] = useState(false)
+  const [secondModal, setSeconModal] = useState(false);
+  const [editModal, setEditModal] = useState(false);
   const [event, setEvent] = useState(true);
   const [eventTwo, setEventTwo] = useState(true);
-  const [editValue, setEditValue] = useState('');
-  const [deleteId, setDeleteId] = useState('');
+  const [editValue, setEditValue] = useState("");
+  const [deleteId, setDeleteId] = useState("");
   // for edit
-  const [editId, setEditId] = useState('');
-  const [labelImg, setLabelImg] = useState('');
-  const [getOldName, setGetOldName] = useState('');
-  const [getBody, setGetBody] = useState('');
-  const [getOldCapacity, setGetOldCapacity] = useState('');
-  const [getOldCost, setGetOldCost] = useState('');
-  const [getOldNew_cost, setGetOldNew_cost] = useState('');
-  const [getOldSize, setGetOldSize] = useState('');
-  const [getOldWarranty, setGetOldWarranty] = useState('');
-  const [getOldweight , setGetOldweight] = useState('');
+  const [editId, setEditId] = useState("");
+  const [labelImg, setLabelImg] = useState("");
+  const [getOldName, setGetOldName] = useState("");
+  const [getBody, setGetBody] = useState("");
+  const [getOldCapacity, setGetOldCapacity] = useState("");
+  const [getOldCost, setGetOldCost] = useState("");
+  const [getOldNew_cost, setGetOldNew_cost] = useState("");
+  const [getOldSize, setGetOldSize] = useState("");
+  const [getOldWarranty, setGetOldWarranty] = useState("");
+  const [getOldweight, setGetOldweight] = useState("");
 
-
-  const [productId, setProductId] = useState('');
-  const [productName, setProductName] = useState('');
+  const [productId, setProductId] = useState("");
+  const [productName, setProductName] = useState("");
   const [getCategory, setGetCategory] = useState([]);
   // const categoryRaf = useRef();
   // const getImgRaf = useRef();
-
 
   const getProductImg = useRef();
   const getProductSelect = useRef();
@@ -204,14 +204,12 @@ export const Product = () => {
       })
       .then((data) => {
         if (data.status === 201) {
-          console.log(data)
-          setCategoryModal(false)
+          console.log(data);
+          setCategoryModal(false);
           window.location.reload(false);
         }
       })
       .catch((err) => console.log(err));
-
-    
   };
 
   // Get category
@@ -226,8 +224,8 @@ export const Product = () => {
       })
       .then((data) => {
         if (data) {
-        setNewProducts(data.data.products)
-        console.log(data.data.products)
+          setNewProducts(data.data.products);
+          console.log(data.data.products);
         }
       })
       .catch((err) => console.log(err));
@@ -236,7 +234,7 @@ export const Product = () => {
   // delete Category
 
   const HandelDeleteButton = (evt) => {
-    evt.preventDefault()
+    evt.preventDefault();
     axios
       .delete(`http://localhost:1212/admin/products/${deleteId}`, {
         headers: {
@@ -245,7 +243,7 @@ export const Product = () => {
       })
       .then((data) => console.log(data))
       .catch((err) => console.log(err));
-      window.location.reload(false);
+    window.location.reload(false);
   };
 
   // Edit category
@@ -296,8 +294,8 @@ export const Product = () => {
       })
       .then((data) => {
         if (data.status === 202) {
-          console.log(data)
-          setEditModal(false)
+          console.log(data);
+          setEditModal(false);
           window.location.reload(false);
         }
       })
@@ -316,8 +314,6 @@ export const Product = () => {
       .catch((err) => console.log(err));
   }, []);
 
- 
-
   return (
     <CotegorWrapTable>
       <Box sx={{ borderBottom: "1px solid #B3C3CA", marginBottom: "0" }}>
@@ -328,23 +324,65 @@ export const Product = () => {
               sx={{ border: "1px solid #B3C3CA", width: "100%" }}
             >
               <TableRow>
-                <TableCell sx={{color: "white", borderBottom: "none",   width: "20%",   textAlign:'center'}}>
+                <TableCell
+                  sx={{
+                    color: "white",
+                    borderBottom: "none",
+                    width: "20%",
+                    textAlign: "center",
+                  }}
+                >
                   Mahsulot nomlari
                 </TableCell>
-                <TableCell sx={{ color: "white", width: "15%", borderBottom: "none",textAlign:'center'  }} >
-                 Toifalar
+                <TableCell
+                  sx={{
+                    color: "white",
+                    width: "15%",
+                    borderBottom: "none",
+                    textAlign: "center",
+                  }}
+                >
+                  Toifalar
                 </TableCell>
-                <TableCell sx={{ color: "white", width: "19%", borderBottom: "none",textAlign:'center'  }} >
-                 Narxi
+                <TableCell
+                  sx={{
+                    color: "white",
+                    width: "19%",
+                    borderBottom: "none",
+                    textAlign: "center",
+                  }}
+                >
+                  Narxi
                 </TableCell>
-                <TableCell sx={{ color: "white", width: "13%", borderBottom: "none",textAlign:'center'  }} >
-                Yuklama
+                <TableCell
+                  sx={{
+                    color: "white",
+                    width: "13%",
+                    borderBottom: "none",
+                    textAlign: "center",
+                  }}
+                >
+                  Yuklama
                 </TableCell>
-                <TableCell sx={{ color: "white", width: "17%", borderBottom: "none",textAlign:'center'}} >
-                Razmeri
+                <TableCell
+                  sx={{
+                    color: "white",
+                    width: "17%",
+                    borderBottom: "none",
+                    textAlign: "center",
+                  }}
+                >
+                  Razmeri
                 </TableCell>
 
-                <TableCell sx={{ color: "white", width: "20%", borderBottom: "none",textAlign:'center'  }} >
+                <TableCell
+                  sx={{
+                    color: "white",
+                    width: "20%",
+                    borderBottom: "none",
+                    textAlign: "center",
+                  }}
+                >
                   Is Active
                 </TableCell>
 
@@ -361,59 +399,71 @@ export const Product = () => {
             >
               {newProducts.map((item) => (
                 <>
-                  <TableRow sx={{ width: "100%" }} key={item.id}  >
-                    <TableCell  key={item.id} sx={{textAlign:'center'}} >
-                    {item.name}
+                  <TableRow sx={{ width: "100%" }} key={item.id}>
+                    <TableCell key={item.id} sx={{ textAlign: "center" }}>
+                      {item.name}
                     </TableCell>
-                    <TableCell  key={item.id} sx={{textAlign:'center'}} >
-                    {item.category}
+                    <TableCell key={item.id} sx={{ textAlign: "center" }}>
+                      {item.category}
                     </TableCell>
-                    <TableCell  key={item.id} sx={{textAlign:'center'}} >
-                    {item.cost} so'm
+                    <TableCell key={item.id} sx={{ textAlign: "center" }}>
+                      {item.cost} so'm
                     </TableCell>
-                    <TableCell  key={item.id} sx={{textAlign:'center'}} >
-                    {item.weight} kg
-                    </TableCell>
-
-                    <TableCell  key={item.id} sx={{textAlign:'center'}}>
-                    {item.size} 
+                    <TableCell key={item.id} sx={{ textAlign: "center" }}>
+                      {item.weight} kg
                     </TableCell>
 
-                    <TableCell sx={{textAlign:'center'}}>
-                  <FormGroup>
-                    <FormControlLabel
-                      control={<IOSSwitch  defaultChecked={true} />}
-                      sx={{textAlign:'center',display:'block',marginRight:'0px'}}
-                    />
-                  </FormGroup>
-                  </TableCell>
+                    <TableCell key={item.id} sx={{ textAlign: "center" }}>
+                      {item.size}
+                    </TableCell>
+
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <FormGroup>
+                        <FormControlLabel
+                          control={<IOSSwitch defaultChecked={true} />}
+                          sx={{
+                            textAlign: "center",
+                            display: "block",
+                            marginRight: "0px",
+                          }}
+                        />
+                      </FormGroup>
+                    </TableCell>
 
                     <TableCell sx={{ paddingRight: "0px" }}>
-                      <CotegoryDeletBtn onClick={() => {
-                         const img = item.product_images.replaceAll("[", "").replaceAll("]", "").replaceAll('"', "").split(",")[0]
-                        //  console.log(img);
-                        setEditModal(true)
-                        setEditId(item.id)
-                        setEditValue(item.category)
-                        setLabelImg(img)
-                        setGetOldName(item.name)
-                        setGetOldCost(item.cost)
-                        setGetOldweight(item.weight)
-                        setGetOldSize(item.size)
-                        setGetOldWarranty(item.warranty)
-                        setGetOldCapacity(item.capacity)
-                        setGetOldNew_cost(item.new_cost)
-                        setGetBody(item.body)
-                      }}>
+                      <CotegoryDeletBtn
+                        onClick={() => {
+                          const img = item.product_images
+                            .replaceAll("[", "")
+                            .replaceAll("]", "")
+                            .replaceAll('"', "")
+                            .split(",")[0];
+                          //  console.log(img);
+                          setEditModal(true);
+                          setEditId(item.id);
+                          setEditValue(item.category);
+                          setLabelImg(img);
+                          setGetOldName(item.name);
+                          setGetOldCost(item.cost);
+                          setGetOldweight(item.weight);
+                          setGetOldSize(item.size);
+                          setGetOldWarranty(item.warranty);
+                          setGetOldCapacity(item.capacity);
+                          setGetOldNew_cost(item.new_cost);
+                          setGetBody(item.body);
+                        }}
+                      >
                         <EditIcon />
                       </CotegoryDeletBtn>
                     </TableCell>
 
                     <TableCell sx={{ paddingRight: "30px" }}>
-                      <CotegoryBtn onClick={() => {
-                        setSeconModal(true)
-                        setDeleteId(item.id)
-                      }}>
+                      <CotegoryBtn
+                        onClick={() => {
+                          setSeconModal(true);
+                          setDeleteId(item.id);
+                        }}
+                      >
                         <DeleteIcon />
                       </CotegoryBtn>
                     </TableCell>
@@ -432,328 +482,403 @@ export const Product = () => {
         {/* qoshish */}
 
         <ProductWrapModal>
-        <Modal sx={{ width: 1110 }}  modal={categoryModal} setModal={setCategoryModal} title="Qo’shish"
-        >
+          <Modal
+            sx={{ width: 1110 }}
+            modal={categoryModal}
+            setModal={setCategoryModal}
+            title="Qo’shish"
+          >
+            <CotegorForm onSubmit={hendlProductSubmit}>
+              <DialogContent dividers>
+                <CotegorFormInner>
+                  <ProductDivOne>
+                    <ProductOneWrapImg>
+                      <ProductOneWrapImgLabel>
+                        <ProductOneWrapImgInput
+                          ref={getProductImg}
+                          type="file"
+                          name="image_one"
+                          placeholder="edd img"
+                          required
+                        />
+                      </ProductOneWrapImgLabel>
+                    </ProductOneWrapImg>
+                  </ProductDivOne>
 
-         <CotegorForm onSubmit={hendlProductSubmit}>
-            <DialogContent dividers>
-            
-            <CotegorFormInner>
+                  <ProductDivTwo>
+                    <ProductDivTwoLabel>Toifalar</ProductDivTwoLabel>
+                    <ProductSelect
+                      defaultValue={""}
+                      ref={getProductSelect}
+                      onChange={() => {
+                        let findOption = getCategory.find((item) => {
+                          return item.id == getProductSelect.current.value;
+                        });
+                        setProductId(findOption.id);
+                        setProductName(findOption.category);
+                      }}
+                    >
+                      <ProductSelectOption disabled value={""}>
+                        Kategorya tanlang
+                      </ProductSelectOption>
+                      {getCategory.map((item) => (
+                        <ProductSelectOption value={item.id} key={item.id}>
+                          {item.category}
+                        </ProductSelectOption>
+                      ))}
+                    </ProductSelect>
 
-              <ProductDivOne>
-                <ProductOneWrapImg>
-                  <ProductOneWrapImgLabel>
-                    <ProductOneWrapImgInput ref={getProductImg} type='file' name="image_one" placeholder="edd img" required/>
-                  </ProductOneWrapImgLabel>
+                    <ProductDivTwoLabel for="product_name">
+                      Tovar nomi
+                    </ProductDivTwoLabel>
+                    <ProductDivTwoInput
+                      ref={getProductName}
+                      id="product_name"
+                      type={"text"}
+                      name="product_name"
+                      placeholder="masalan: Lux Soft Memory"
+                      required
+                    />
 
-                </ProductOneWrapImg>
-              </ProductDivOne>
+                    <ProductDivTwoLabel for="product_name">
+                      Narxi
+                    </ProductDivTwoLabel>
+                    <ProductDivTwoInput
+                      ref={getProductPrice}
+                      id="product_price"
+                      type={"number"}
+                      name="product_name"
+                      placeholder="masalan: 20 000"
+                      required
+                    />
 
-              <ProductDivTwo>
-                <ProductDivTwoLabel>
-                Toifalar
-                </ProductDivTwoLabel>
-                  <ProductSelect defaultValue={''} ref={getProductSelect} onChange={()=>{
-                      let findOption = getCategory.find(item => {
-                        return item.id == getProductSelect.current.value
-                      })
-                      setProductId(findOption.id);
-                      setProductName(findOption.category);
-                      
-                  }}>
+                    <ProductDivTwoLabel for="product_downd">
+                      Yuklama
+                    </ProductDivTwoLabel>
+                    <ProductDivTwoInput
+                      ref={getProductHight}
+                      id="product_name"
+                      type={"text"}
+                      name="product_name"
+                      placeholder="masalan: 200 kg"
+                      required
+                    />
+                  </ProductDivTwo>
 
-                    <ProductSelectOption disabled value={''}>
-                      Kategorya tanlang 
-                    </ProductSelectOption>
-                    {
-                      getCategory.map(item => (
-                        
-                    <ProductSelectOption value={item.id} key={item.id} >
-                       {item.category} 
-                    </ProductSelectOption>
-                    
-                      ))
-                    }
-                  </ProductSelect>
+                  <ProductDivThre>
+                    <ProductDivTwoLabel>Razmeri</ProductDivTwoLabel>
+                    <ProductDivTwoInput
+                      ref={getProductRazmer}
+                      type={"text"}
+                      name="product_size"
+                      placeholder="masalan: 200 x 140 x 40"
+                      required
+                    />
 
-                  <ProductDivTwoLabel for='product_name'>
-                  Tovar nomi
-                   </ProductDivTwoLabel>
-                   <ProductDivTwoInput ref={getProductName} id="product_name" type={'text'} name='product_name' placeholder="masalan: Lux Soft Memory" required />
+                    <ProductDivTwoLabel>Kafolat</ProductDivTwoLabel>
+                    <ProductDivTwoInput
+                      ref={getProductKafolot}
+                      type={"text"}
+                      name="product_garant"
+                      placeholder="masalan: 1 yil"
+                      required
+                    />
 
-                   <ProductDivTwoLabel for='product_name'>
-                   Narxi
-                   </ProductDivTwoLabel>
-                   <ProductDivTwoInput ref={getProductPrice} id="product_price" type={'number'} name='product_name' placeholder="masalan: 20 000" required />
+                    <ProductDivTwoLabel>Sig’m</ProductDivTwoLabel>
+                    <ProductDivTwoInput
+                      ref={getProductSigim}
+                      type={"text"}
+                      name="product_area"
+                      placeholder="masalan: 2"
+                      required
+                    />
 
-                    <ProductDivTwoLabel for='product_downd'>
-                    Yuklama
-                   </ProductDivTwoLabel>
-                   <ProductDivTwoInput ref={getProductHight} id="product_name" type={'text'} name='product_name' placeholder="masalan: 200 kg" required />
+                    <ProductDivTwoLabel>Aksiya Narxi</ProductDivTwoLabel>
+                    <ProductDivTwoInput
+                      ref={getProductAksya}
+                      type={"number"}
+                      name="product_newprise"
+                      placeholder="masalan: 1 200 000"
+                      required
+                    />
+                  </ProductDivThre>
 
-              </ProductDivTwo>
+                  <ProductDivFour>
+                    <ProductDivTwoLabel>Ma’lumot</ProductDivTwoLabel>
 
-              <ProductDivThre>
+                    <ProductDivTwoTextarea
+                      ref={getTextArea}
+                      type={"text"}
+                      name="product_textarea"
+                      placeholder="info..."
+                      required
+                    />
 
-                <ProductDivTwoLabel>
-                  Razmeri
-                   </ProductDivTwoLabel>
-                   <ProductDivTwoInput ref={getProductRazmer}  type={'text'} name='product_size' placeholder="masalan: 200 x 140 x 40" required />
+                    <CotegorWrapSwitch>
+                      <CotegorWrapSpan>Navinla</CotegorWrapSpan>
+                      <FormGroup>
+                        <FormControlLabel
+                          onChange={() => setEvent(!event)}
+                          control={<IOSSwitch defaultChecked={event} />}
+                          sx={{
+                            textAlign: "center",
+                            display: "block",
+                            marginLeft: "0px",
+                          }}
+                        />
+                      </FormGroup>
+                    </CotegorWrapSwitch>
 
-                  <ProductDivTwoLabel >
-                  Kafolat
-                   </ProductDivTwoLabel>
-                   <ProductDivTwoInput ref={getProductKafolot}  type={'text'} name='product_garant' placeholder="masalan: 1 yil" required />
+                    <CotegorWrapSwitchTwo>
+                      <CotegorWrapSpan>Active</CotegorWrapSpan>
+                      <FormGroup>
+                        <FormControlLabel
+                          onChange={() => setEventTwo(!eventTwo)}
+                          control={<IOSSwitch defaultChecked={event} />}
+                          sx={{
+                            textAlign: "center",
+                            display: "block",
+                            marginLeft: "0px",
+                          }}
+                        />
+                      </FormGroup>
+                    </CotegorWrapSwitchTwo>
 
-                   <ProductDivTwoLabel >
-                   Sig’m
-                   </ProductDivTwoLabel>
-                   <ProductDivTwoInput ref={getProductSigim}  type={'text'} name='product_area' placeholder="masalan: 2" required />
-
-                    <ProductDivTwoLabel >
-                    Aksiya Narxi
-                   </ProductDivTwoLabel>
-                   <ProductDivTwoInput ref={getProductAksya}  type={'number'} name='product_newprise' placeholder="masalan: 1 200 000" required />
-
-              </ProductDivThre>
-
-              <ProductDivFour>
-
-                <ProductDivTwoLabel>
-                   Ma’lumot
-                   </ProductDivTwoLabel>
-
-                   <ProductDivTwoTextarea ref={getTextArea}  type={'text'} name='product_textarea' placeholder="info..." required />
-
-                 <CotegorWrapSwitch>
-                <CotegorWrapSpan>Navinla</CotegorWrapSpan>
-                <FormGroup>
-                  <FormControlLabel
-                    onChange={() => setEvent(!event)}
-                    control={<IOSSwitch defaultChecked={event} />}
-                    sx={{
-                      textAlign: "center",
-                      display: "block",
-                      marginLeft: "0px",
-                    }}
-                  />
-                </FormGroup>
-              </CotegorWrapSwitch>
-
-              <CotegorWrapSwitchTwo>
-                <CotegorWrapSpan>Active</CotegorWrapSpan>
-                <FormGroup>
-                  <FormControlLabel
-                    onChange={() => setEventTwo(!eventTwo)}
-                    control={<IOSSwitch defaultChecked={event} />}
-                    sx={{
-                      textAlign: "center",
-                      display: "block",
-                      marginLeft: "0px",
-                    }}
-                  />
-                </FormGroup>
-              </CotegorWrapSwitchTwo>
-
-             <CotegorAddBtn
-                type="submit"
-              >
-                Qo’shish
-              </CotegorAddBtn>
-
-              </ProductDivFour>
-             
-            </CotegorFormInner>
-
-            </DialogContent>
-
-           
-          </CotegorForm>
-          
-        </Modal>
-        <GlobalModal />
+                    <CotegorAddBtn type="submit">Qo’shish</CotegorAddBtn>
+                  </ProductDivFour>
+                </CotegorFormInner>
+              </DialogContent>
+            </CotegorForm>
+          </Modal>
+          <GlobalModal />
         </ProductWrapModal>
-
-       
 
         {/* delete modal */}
 
-        <Modal  modal={secondModal} setModal={setSeconModal} title="Haqiqatdan ham o’chirmoqchimisiz?" >
-      <CotegorSecondForm onSubmit={HandelDeleteButton} >
-       <DialogContent dividers sx={{width:'124%', display:'flex' , justifyContent:'flex-end'}} >
+        <Modal
+          modal={secondModal}
+          setModal={setSeconModal}
+          title="Haqiqatdan ham o’chirmoqchimisiz?"
+        >
+          <CotegorSecondForm onSubmit={HandelDeleteButton}>
+            <DialogContent
+              dividers
+              sx={{
+                width: "124%",
+                display: "flex",
+                justifyContent: "flex-end",
+              }}
+            >
+              <EditButton type="button" onClick={() => setSeconModal(false)}>
+                YO’Q
+              </EditButton>
 
-        <EditButton type='button' onClick={() => setSeconModal(false)} >
-          YO’Q
-        </EditButton>
-
-    <DeleteButton type='submit' onClick={() => {
-      setSeconModal(false)
-    }} >
-    ha
-    </DeleteButton>
-
-    </DialogContent>
-    
-    </CotegorSecondForm>
-    <GlobalDeletModal />
+              <DeleteButton
+                type="submit"
+                onClick={() => {
+                  setSeconModal(false);
+                }}
+              >
+                ha
+              </DeleteButton>
+            </DialogContent>
+          </CotegorSecondForm>
+          <GlobalDeletModal />
         </Modal>
 
         {/* Edit */}
 
         <ProductWrapModal>
-        <Modal sx={{ width: 1110 }}  modal={editModal} setModal={setEditModal} title="O'zgartirish"
-        >
+          <Modal
+            sx={{ width: 1110 }}
+            modal={editModal}
+            setModal={setEditModal}
+            title="O'zgartirish"
+          >
+            <CotegorForm onSubmit={hendlProductEdit}>
+              <DialogContent dividers>
+                <CotegorFormInner>
+                  <ProductDivOne>
+                    <ProductOneWrapImg>
+                      <ProductOneWrapImgLabel>
+                        <ProductOneWrapImgInput
+                          ref={getProductImg}
+                          type="file"
+                          name="image_one"
+                          placeholder="edd img"
+                          required
+                        />
+                        <CarouselLabelfirstSpan>
+                          Add New Photo
+                        </CarouselLabelfirstSpan>
+                      </ProductOneWrapImgLabel>
+                    </ProductOneWrapImg>
 
-         <CotegorForm onSubmit={hendlProductEdit}>
-            <DialogContent dividers>
-            
-            <CotegorFormInner>
+                    <CarouselWrapLabelTwoDiv>
+                      <CarouselLabelImg
+                        src={`http://localhost:1212/carousel/${labelImg}`}
+                        alt="Matras"
+                      />
 
-              <ProductDivOne>
-                <ProductOneWrapImg>
-                  <ProductOneWrapImgLabel>
-                    <ProductOneWrapImgInput ref={getProductImg} type='file' name="image_one" placeholder="edd img" required/>
-                    <CarouselLabelfirstSpan>
-                       Add New Photo
-                    </CarouselLabelfirstSpan>
-                  </ProductOneWrapImgLabel>
-                </ProductOneWrapImg>
-                
-                <CarouselWrapLabelTwoDiv>
-                <CarouselLabelImg  src={`http://localhost:1212/carousel/${labelImg}`} alt='Matras' />
-                 
-                <CarouselLabelTwoSpan>
-                 Old Photo
-                </CarouselLabelTwoSpan>
-               </CarouselWrapLabelTwoDiv>
+                      <CarouselLabelTwoSpan>Old Photo</CarouselLabelTwoSpan>
+                    </CarouselWrapLabelTwoDiv>
+                  </ProductDivOne>
 
-              </ProductDivOne>
+                  <ProductDivTwo>
+                    <ProductDivTwoLabel>Toifalar</ProductDivTwoLabel>
+                    <ProductSelect
+                      defaultValue={""}
+                      ref={getProductSelect}
+                      onChange={() => {
+                        let findOption = getCategory.find((item) => {
+                          return item.id == getProductSelect.current.value;
+                        });
+                        setProductId(findOption.id);
+                        setProductName(findOption.category);
+                      }}
+                    >
+                      <ProductSelectOption disabled value={""}>
+                        Kategorya tanlang
+                      </ProductSelectOption>
+                      {getCategory.map((item) => (
+                        <ProductSelectOption value={item.id} key={item.id}>
+                          {item.category}
+                        </ProductSelectOption>
+                      ))}
+                    </ProductSelect>
 
-              <ProductDivTwo>
-                <ProductDivTwoLabel>
-                Toifalar
-                </ProductDivTwoLabel>
-                  <ProductSelect defaultValue={''} ref={getProductSelect} onChange={()=>{
-                      let findOption = getCategory.find(item => {
-                        return item.id == getProductSelect.current.value
-                      })
-                      setProductId(findOption.id);
-                      setProductName(findOption.category);
-                      
-                  }}>
+                    <ProductDivTwoLabel for="product_name">
+                      Tovar nomi
+                    </ProductDivTwoLabel>
+                    <ProductDivTwoInput
+                      ref={getProductName}
+                      defaultValue={getOldName}
+                      id="product_name"
+                      type={"text"}
+                      name="product_name"
+                      placeholder="masalan: Lux Soft Memory"
+                      required
+                    />
 
-                    <ProductSelectOption disabled value={''}>
-                      Kategorya tanlang 
-                    </ProductSelectOption>
-                    {
-                      getCategory.map(item => (
-                        
-                    <ProductSelectOption value={item.id} key={item.id} >
-                       {item.category} 
-                    </ProductSelectOption>
-                    
-                      ))
-                    }
-                  </ProductSelect>
+                    <ProductDivTwoLabel for="product_name">
+                      Narxi
+                    </ProductDivTwoLabel>
+                    <ProductDivTwoInput
+                      ref={getProductPrice}
+                      defaultValue={getOldCost}
+                      id="product_price"
+                      type={"number"}
+                      name="product_name"
+                      placeholder="masalan: 20 000"
+                      required
+                    />
 
-                  <ProductDivTwoLabel for='product_name'>
-                  Tovar nomi
-                   </ProductDivTwoLabel>
-                   <ProductDivTwoInput ref={getProductName} defaultValue={getOldName} id="product_name" type={'text'} name='product_name' placeholder="masalan: Lux Soft Memory" required />
+                    <ProductDivTwoLabel for="product_downd">
+                      Yuklama
+                    </ProductDivTwoLabel>
+                    <ProductDivTwoInput
+                      ref={getProductHight}
+                      defaultValue={getOldweight}
+                      id="product_name"
+                      type={"text"}
+                      name="product_name"
+                      placeholder="masalan: 200 kg"
+                      required
+                    />
+                  </ProductDivTwo>
 
-                   <ProductDivTwoLabel for='product_name'>
-                   Narxi
-                   </ProductDivTwoLabel>
-                   <ProductDivTwoInput ref={getProductPrice} defaultValue={getOldCost} id="product_price" type={'number'} name='product_name' placeholder="masalan: 20 000" required />
+                  <ProductDivThre>
+                    <ProductDivTwoLabel>Razmeri</ProductDivTwoLabel>
+                    <ProductDivTwoInput
+                      ref={getProductRazmer}
+                      defaultValue={getOldSize}
+                      type={"text"}
+                      name="product_size"
+                      placeholder="masalan: 200 x 140 x 40"
+                      required
+                    />
 
-                    <ProductDivTwoLabel for='product_downd'>
-                    Yuklama
-                   </ProductDivTwoLabel>
-                   <ProductDivTwoInput ref={getProductHight} defaultValue={getOldweight} id="product_name" type={'text'} name='product_name' placeholder="masalan: 200 kg" required />
+                    <ProductDivTwoLabel>Kafolat</ProductDivTwoLabel>
+                    <ProductDivTwoInput
+                      ref={getProductKafolot}
+                      defaultValue={getOldWarranty}
+                      type={"text"}
+                      name="product_garant"
+                      placeholder="masalan: 1 yil"
+                      required
+                    />
 
-              </ProductDivTwo>
+                    <ProductDivTwoLabel>Sig’m</ProductDivTwoLabel>
+                    <ProductDivTwoInput
+                      ref={getProductSigim}
+                      defaultValue={getOldCapacity}
+                      type={"text"}
+                      name="product_area"
+                      placeholder="masalan: 2"
+                      required
+                    />
 
-              <ProductDivThre>
+                    <ProductDivTwoLabel>Aksiya Narxi</ProductDivTwoLabel>
+                    <ProductDivTwoInput
+                      ref={getProductAksya}
+                      defaultValue={getOldNew_cost}
+                      type={"number"}
+                      name="product_newprise"
+                      placeholder="masalan: 1 200 000"
+                      required
+                    />
+                  </ProductDivThre>
 
-                <ProductDivTwoLabel>
-                  Razmeri
-                   </ProductDivTwoLabel>
-                   <ProductDivTwoInput ref={getProductRazmer}  defaultValue={getOldSize}  type={'text'} name='product_size' placeholder="masalan: 200 x 140 x 40" required />
+                  <ProductDivFour>
+                    <ProductDivTwoLabel>Ma’lumot</ProductDivTwoLabel>
 
-                  <ProductDivTwoLabel >
-                  Kafolat
-                   </ProductDivTwoLabel>
-                   <ProductDivTwoInput ref={getProductKafolot} defaultValue={getOldWarranty}  type={'text'} name='product_garant' placeholder="masalan: 1 yil" required />
+                    <ProductDivTwoTextarea
+                      ref={getTextArea}
+                      defaultValue={getBody}
+                      type={"text"}
+                      name="product_textarea"
+                      placeholder="info..."
+                      required
+                    />
 
-                   <ProductDivTwoLabel >
-                   Sig’m
-                   </ProductDivTwoLabel>
-                   <ProductDivTwoInput ref={getProductSigim} defaultValue={getOldCapacity}   type={'text'} name='product_area' placeholder="masalan: 2" required />
+                    <CotegorWrapSwitch>
+                      <CotegorWrapSpan>Navinla</CotegorWrapSpan>
+                      <FormGroup>
+                        <FormControlLabel
+                          onChange={() => setEvent(!event)}
+                          control={<IOSSwitch defaultChecked={event} />}
+                          sx={{
+                            textAlign: "center",
+                            display: "block",
+                            marginLeft: "0px",
+                          }}
+                        />
+                      </FormGroup>
+                    </CotegorWrapSwitch>
 
-                    <ProductDivTwoLabel >
-                    Aksiya Narxi
-                   </ProductDivTwoLabel>
-                   <ProductDivTwoInput ref={getProductAksya} defaultValue={getOldNew_cost} type={'number'} name='product_newprise' placeholder="masalan: 1 200 000" required />
+                    <CotegorWrapSwitchTwo>
+                      <CotegorWrapSpan>Active</CotegorWrapSpan>
+                      <FormGroup>
+                        <FormControlLabel
+                          onChange={() => setEventTwo(!eventTwo)}
+                          control={<IOSSwitch defaultChecked={event} />}
+                          sx={{
+                            textAlign: "center",
+                            display: "block",
+                            marginLeft: "0px",
+                          }}
+                        />
+                      </FormGroup>
+                    </CotegorWrapSwitchTwo>
 
-              </ProductDivThre>
-
-              <ProductDivFour>
-
-                <ProductDivTwoLabel>
-                   Ma’lumot
-                   </ProductDivTwoLabel>
-
-                   <ProductDivTwoTextarea ref={getTextArea} defaultValue={getBody}   type={'text'} name='product_textarea' placeholder="info..." required />
-
-                 <CotegorWrapSwitch>
-                <CotegorWrapSpan>Navinla</CotegorWrapSpan>
-                <FormGroup>
-                  <FormControlLabel
-                    onChange={() => setEvent(!event)}
-                    control={<IOSSwitch defaultChecked={event} />}
-                    sx={{
-                      textAlign: "center",
-                      display: "block",
-                      marginLeft: "0px",
-                    }}
-                  />
-                </FormGroup>
-              </CotegorWrapSwitch>
-
-              <CotegorWrapSwitchTwo>
-                <CotegorWrapSpan>Active</CotegorWrapSpan>
-                <FormGroup>
-                  <FormControlLabel
-                    onChange={() => setEventTwo(!eventTwo)}
-                    control={<IOSSwitch defaultChecked={event} />}
-                    sx={{
-                      textAlign: "center",
-                      display: "block",
-                      marginLeft: "0px",
-                    }}
-                  />
-                </FormGroup>
-              </CotegorWrapSwitchTwo>
-
-             <CotegorAddBtn
-                type="submit"
-              >
-                O'zgartirish
-              </CotegorAddBtn>
-
-              </ProductDivFour>
-             
-            </CotegorFormInner>
-
-            </DialogContent>
-
-           
-          </CotegorForm>
-          
-        </Modal>
-        <GlobalModal />
+                    <CotegorAddBtn type="submit">O'zgartirish</CotegorAddBtn>
+                  </ProductDivFour>
+                </CotegorFormInner>
+              </DialogContent>
+            </CotegorForm>
+          </Modal>
+          <GlobalModal />
         </ProductWrapModal>
-
       </Box>
     </CotegorWrapTable>
   );

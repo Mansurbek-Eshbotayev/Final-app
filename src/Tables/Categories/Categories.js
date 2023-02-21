@@ -35,15 +35,14 @@ import {
   EditButton,
 } from "./CategoriesStyle";
 
-
 export const Categories = () => {
   const [categoryModal, setCategoryModal] = useState(false);
-  const [secondModal, setSeconModal] = useState(false)
-  const [editModal, setEditModal] = useState(false)
+  const [secondModal, setSeconModal] = useState(false);
+  const [editModal, setEditModal] = useState(false);
   const [event, setEvent] = useState(true);
-  const [editValue, setEditValue] = useState('');
-  const [deleteId, setDeleteId] = useState('');
-  const [editId, setEditId] = useState('');
+  const [editValue, setEditValue] = useState("");
+  const [deleteId, setDeleteId] = useState("");
+  const [editId, setEditId] = useState("");
   const categoryRaf = useRef();
   const token = localStorage.getItem("token");
 
@@ -130,7 +129,7 @@ export const Categories = () => {
 
   const [newCotegory, setNewCotegory] = useState([]);
 
-// Get category
+  // Get category
   useEffect(() => {
     axios
       .get("http://localhost:1212/admin/categories", {
@@ -145,7 +144,7 @@ export const Categories = () => {
   // delete Category
 
   const HandelDeleteButton = (evt) => {
-    evt.preventDefault()
+    evt.preventDefault();
     axios
       .delete(`http://localhost:1212/admin/categories/${deleteId}`, {
         headers: {
@@ -154,8 +153,8 @@ export const Categories = () => {
       })
       .then((data) => {
         if (data.status === 200) {
-          console.log(data)
-          setSeconModal(false)
+          console.log(data);
+          setSeconModal(false);
           window.location.reload(false);
         }
       })
@@ -173,7 +172,7 @@ export const Categories = () => {
     };
 
     axios
-      .put(`http://localhost:1212/admin/categories/${editId}`,dataType,{
+      .put(`http://localhost:1212/admin/categories/${editId}`, dataType, {
         headers: {
           Authorization: token,
         },
@@ -217,26 +216,30 @@ export const Categories = () => {
             >
               {newCotegory.map((item) => (
                 <>
-                  <TableRow sx={{ width: "100%" }} key={item.id} >
+                  <TableRow sx={{ width: "100%" }} key={item.id}>
                     <TableCell sx={{ paddingLeft: "40px" }} key={item.id}>
                       {item.category}
                     </TableCell>
 
                     <TableCell sx={{ paddingRight: "0px" }}>
-                      <CotegoryDeletBtn onClick={() => {
-                        setEditModal(true)
-                        setEditId(item.id)
-                        setEditValue(item.category)
-                      }}>
+                      <CotegoryDeletBtn
+                        onClick={() => {
+                          setEditModal(true);
+                          setEditId(item.id);
+                          setEditValue(item.category);
+                        }}
+                      >
                         <EditIcon />
                       </CotegoryDeletBtn>
                     </TableCell>
 
                     <TableCell sx={{ paddingRight: "30px" }}>
-                      <CotegoryBtn onClick={() => {
-                        setSeconModal(true)
-                        setDeleteId(item.id)
-                      }}>
+                      <CotegoryBtn
+                        onClick={() => {
+                          setSeconModal(true);
+                          setDeleteId(item.id);
+                        }}
+                      >
                         <DeleteIcon />
                       </CotegoryBtn>
                     </TableCell>
@@ -298,32 +301,39 @@ export const Categories = () => {
 
         {/* sexond modal */}
 
-        <Modal  modal={secondModal} setModal={setSeconModal} title="Haqiqatdan ham o’chirmoqchimisiz?" >
-      <CotegorSecondForm onSubmit={HandelDeleteButton} >
-       <DialogContent dividers sx={{width:'124%', display:'flex' , justifyContent:'flex-end'}} >
+        <Modal
+          modal={secondModal}
+          setModal={setSeconModal}
+          title="Haqiqatdan ham o’chirmoqchimisiz?"
+        >
+          <CotegorSecondForm onSubmit={HandelDeleteButton}>
+            <DialogContent
+              dividers
+              sx={{
+                width: "124%",
+                display: "flex",
+                justifyContent: "flex-end",
+              }}
+            >
+              <EditButton type="button" onClick={() => setSeconModal(false)}>
+                YO’Q
+              </EditButton>
 
-        <EditButton type='button' onClick={() => setSeconModal(false)} >
-          YO’Q
-        </EditButton>
-
-    <DeleteButton type='submit' onClick={() => {
-      setSeconModal(false)
-    }} >
-    ha
-    </DeleteButton>
-
-    </DialogContent>
-    
-    </CotegorSecondForm>
+              <DeleteButton
+                type="submit"
+                onClick={() => {
+                  setSeconModal(false);
+                }}
+              >
+                ha
+              </DeleteButton>
+            </DialogContent>
+          </CotegorSecondForm>
         </Modal>
 
         {/* Edit */}
 
-        <Modal
-          modal={editModal}
-          setModal={setEditModal}
-          title="O'zgartirish"
-        >
+        <Modal modal={editModal} setModal={setEditModal} title="O'zgartirish">
           <CotegoreEditForm onSubmit={hendlEditSubmit}>
             <DialogContent dividers>
               <CotegorText>Kategoriya nomi</CotegorText>
@@ -352,19 +362,12 @@ export const Categories = () => {
               </CotegorWrapSwitch>
             </DialogContent>
             <DialogActions>
-              <CotegorAddBtn
-                type="submit"
-                onClick={() => setEditModal(false)}
-              >
+              <CotegorAddBtn type="submit" onClick={() => setEditModal(false)}>
                 O'zgartirish
               </CotegorAddBtn>
             </DialogActions>
           </CotegoreEditForm>
         </Modal>
-
-
-
-
       </Box>
     </CotegorWrapTable>
   );

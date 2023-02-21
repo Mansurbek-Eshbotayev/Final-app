@@ -1,4 +1,2 @@
 import styled from "styled-components";
-export const AppStyle = styled.div`
-
-`
+export const AppStyle = styled.div``;

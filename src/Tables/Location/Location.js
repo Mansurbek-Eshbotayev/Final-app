@@ -15,7 +15,10 @@ import {
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { DeleteIcon, EditIcon, LocationImg } from "../../assets/images/Icons";
-import { GlobalDeletModal, GlobalLocationModal, } from "../../assets/styles/AppGlobalCss";
+import {
+  GlobalDeletModal,
+  GlobalLocationModal,
+} from "../../assets/styles/AppGlobalCss";
 import { Modal } from "../../components/Modal/Modal";
 import {
   CotegorAddBtn,
@@ -43,27 +46,24 @@ import {
   ProductWrapModal,
 } from "./LocationStyle";
 
-import "../../../node_modules/slick-carousel/slick/slick.css"; 
+import "../../../node_modules/slick-carousel/slick/slick.css";
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-
 export const Location = () => {
   const [categoryModal, setCategoryModal] = useState(false);
-  const [secondModal, setSeconModal] = useState(false)
-  const [editModal, setEditModal] = useState(false)
+  const [secondModal, setSeconModal] = useState(false);
+  const [editModal, setEditModal] = useState(false);
   const [event, setEvent] = useState(true);
-  const [deleteId, setDeleteId] = useState('');
+  const [deleteId, setDeleteId] = useState("");
   // for edit
-  const [editId, setEditId] = useState('');
-  const [getOldName, setGetOldName] = useState('');
-  const [getBody, setGetBody] = useState('');
-  const [getOldCost, setGetOldCost] = useState('');
-
+  const [editId, setEditId] = useState("");
+  const [getOldName, setGetOldName] = useState("");
+  const [getBody, setGetBody] = useState("");
+  const [getOldCost, setGetOldCost] = useState("");
 
   // const categoryRaf = useRef();
   // const getImgRaf = useRef();
-
 
   const getLocalImg = useRef();
   const getLocalImgOne = useRef();
@@ -73,8 +73,6 @@ export const Location = () => {
   const getTextArea = useRef();
 
   const token = localStorage.getItem("token");
-
-
 
   // Mui
   const IOSSwitch = styled((props) => (
@@ -161,14 +159,12 @@ export const Location = () => {
       })
       .then((data) => {
         if (data.status === 201) {
-          console.log(data)
-          setCategoryModal(false)
+          console.log(data);
+          setCategoryModal(false);
           window.location.reload(false);
         }
       })
       .catch((err) => console.log(err));
-
-    
   };
 
   // Get category
@@ -183,8 +179,8 @@ export const Location = () => {
       })
       .then((data) => {
         if (data) {
-        setNewProducts(data.data)
-        console.log(data.data)
+          setNewProducts(data.data);
+          console.log(data.data);
         }
       })
       .catch((err) => console.log(err));
@@ -193,7 +189,7 @@ export const Location = () => {
   // delete Category
 
   const HandelDeleteButton = (evt) => {
-    evt.preventDefault()
+    evt.preventDefault();
     axios
       .delete(`http://localhost:1212/admin/address/${deleteId}`, {
         headers: {
@@ -202,7 +198,7 @@ export const Location = () => {
       })
       .then((data) => console.log(data))
       .catch((err) => console.log(err));
-      window.location.reload(false);
+    window.location.reload(false);
   };
 
   // Edit category
@@ -216,8 +212,6 @@ export const Location = () => {
     // console.log(getProductName.current.value)
     // console.log(getProductLocation.current.value)
     // console.log(getTextArea.current.value)
-
-
 
     const formData = new FormData();
 
@@ -234,8 +228,7 @@ export const Location = () => {
     // formData.append("newCost", getProductAksya.current.value);
     // formData.append("discount", event);
     // formData.append("new", eventTwo);
-    
-   
+
     axios
       .put(`http://localhost:1212/admin/address/${editId}`, formData, {
         headers: {
@@ -244,25 +237,21 @@ export const Location = () => {
       })
       .then((data) => {
         if (data.status === 200) {
-          console.log(data)
-          setEditModal(false)
+          console.log(data);
+          setEditModal(false);
           window.location.reload(false);
         }
       })
       .catch((err) => console.log(err));
-
-    
   };
 
-
-
-    // slick
+  // slick
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
   };
 
   return (
@@ -275,18 +264,45 @@ export const Location = () => {
               sx={{ border: "1px solid #B3C3CA", width: "100%" }}
             >
               <TableRow>
-                <TableCell sx={{color: "white", borderBottom: "none",   width: "22%",   textAlign:'center'}}>
-                Manzil
+                <TableCell
+                  sx={{
+                    color: "white",
+                    borderBottom: "none",
+                    width: "22%",
+                    textAlign: "center",
+                  }}
+                >
+                  Manzil
                 </TableCell>
-                <TableCell sx={{ color: "white", width: "22%", borderBottom: "none",textAlign:'center'  }} >
-                Matn
+                <TableCell
+                  sx={{
+                    color: "white",
+                    width: "22%",
+                    borderBottom: "none",
+                    textAlign: "center",
+                  }}
+                >
+                  Matn
                 </TableCell>
-                <TableCell sx={{ color: "white", width: "10%", borderBottom: "none",textAlign:'center'}} >
-                Location
+                <TableCell
+                  sx={{
+                    color: "white",
+                    width: "10%",
+                    borderBottom: "none",
+                    textAlign: "center",
+                  }}
+                >
+                  Location
                 </TableCell>
 
-                <TableCell sx={{ color: "white", width: "100%", borderBottom: "none",textAlign:'center'  }} >
-                </TableCell>
+                <TableCell
+                  sx={{
+                    color: "white",
+                    width: "100%",
+                    borderBottom: "none",
+                    textAlign: "center",
+                  }}
+                ></TableCell>
 
                 <TableCell></TableCell>
                 <TableCell></TableCell>
@@ -301,50 +317,60 @@ export const Location = () => {
             >
               {newProducts.map((item) => (
                 <>
-                  <TableRow sx={{ width: "100%" }} key={item.id}  >
-                    <TableCell  key={item.id} sx={{textAlign:'center'}} >
-                    {item.location}
+                  <TableRow sx={{ width: "100%" }} key={item.id}>
+                    <TableCell key={item.id} sx={{ textAlign: "center" }}>
+                      {item.location}
                     </TableCell>
-                    <TableCell  key={item.id} sx={{textAlign:'center',overflow:'hidden',textOverflow:'ellipsis',overflowX:'auto'}} >
-                    {item.geolacation}
+                    <TableCell
+                      key={item.id}
+                      sx={{
+                        textAlign: "center",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        overflowX: "auto",
+                      }}
+                    >
+                      {item.geolacation}
                     </TableCell>
-                    <TableCell  key={item.id} sx={{textAlign:'center'}} >
-                    <LocationImg />
+                    <TableCell key={item.id} sx={{ textAlign: "center" }}>
+                      <LocationImg />
                     </TableCell>
-                    
-                    <TableCell  key={item.id} sx={{textAlign:'center'}} >
-                   
-                    </TableCell>
-                   
 
-           
+                    <TableCell
+                      key={item.id}
+                      sx={{ textAlign: "center" }}
+                    ></TableCell>
 
                     <TableCell sx={{ paddingRight: "0px" }}>
-                      <CotegoryDeletBtn onClick={() => {
-                        //  const img = item.product_images.replaceAll("[", "").replaceAll("]", "").replaceAll('"', "").split(",")[0]
-                        //  console.log(img);
-                        setEditModal(true)
-                        setEditId(item.id)
-                        // setEditValue(item.category)
-                        // setLabelImg(img)
-                        setGetOldName(item.location)
-                        setGetOldCost(item.geolacation)
-                        // setGetOldweight(item.weight)
-                        // setGetOldSize(item.size)
-                        // setGetOldWarranty(item.warranty)
-                        // setGetOldCapacity(item.capacity)
-                        // setGetOldNew_cost(item.new_cost)
-                        setGetBody(item.destination)
-                      }}>
+                      <CotegoryDeletBtn
+                        onClick={() => {
+                          //  const img = item.product_images.replaceAll("[", "").replaceAll("]", "").replaceAll('"', "").split(",")[0]
+                          //  console.log(img);
+                          setEditModal(true);
+                          setEditId(item.id);
+                          // setEditValue(item.category)
+                          // setLabelImg(img)
+                          setGetOldName(item.location);
+                          setGetOldCost(item.geolacation);
+                          // setGetOldweight(item.weight)
+                          // setGetOldSize(item.size)
+                          // setGetOldWarranty(item.warranty)
+                          // setGetOldCapacity(item.capacity)
+                          // setGetOldNew_cost(item.new_cost)
+                          setGetBody(item.destination);
+                        }}
+                      >
                         <EditIcon />
                       </CotegoryDeletBtn>
                     </TableCell>
 
                     <TableCell sx={{ paddingRight: "30px" }}>
-                      <CotegoryBtn onClick={() => {
-                        setSeconModal(true)
-                        setDeleteId(item.id)
-                      }}>
+                      <CotegoryBtn
+                        onClick={() => {
+                          setSeconModal(true);
+                          setDeleteId(item.id);
+                        }}
+                      >
                         <DeleteIcon />
                       </CotegoryBtn>
                     </TableCell>
@@ -363,211 +389,232 @@ export const Location = () => {
         {/* qoshish */}
 
         <ProductWrapModal>
-        <Modal sx={{ width: 815 }}  modal={categoryModal} setModal={setCategoryModal} title="Qo’shish"
-        >
+          <Modal
+            sx={{ width: 815 }}
+            modal={categoryModal}
+            setModal={setCategoryModal}
+            title="Qo’shish"
+          >
+            <CotegorForm onSubmit={hendlLocationSubmit}>
+              <DialogContent dividers sx={{ paddingBottom: "40px" }}>
+                <CotegorFormInner>
+                  <ProductDivOne>
+                    <ProductOneWrapImg>
+                      <Slider {...settings}>
+                        <ProductOneWrapImgLabel>
+                          <ProductOneWrapImgInput
+                            ref={getLocalImg}
+                            type="file"
+                            name="form_img"
+                            placeholder="edd img"
+                            required
+                          />
+                        </ProductOneWrapImgLabel>
 
-         <CotegorForm onSubmit={hendlLocationSubmit} >
-            <DialogContent dividers sx={{ paddingBottom: '40px' }}>
-            
-            <CotegorFormInner>
-
-              <ProductDivOne>
-                <ProductOneWrapImg>
-                  <Slider {...settings}>
-
-                    <ProductOneWrapImgLabel>
-                    <ProductOneWrapImgInput ref={getLocalImg} type='file' name="form_img" placeholder="edd img" required/>
-                    </ProductOneWrapImgLabel>
-
-                    {/* <ProductOneWrapImgLabel>
+                        {/* <ProductOneWrapImgLabel>
                       <ProductOneWrapImgInput ref={getLocalImgOne} type='file'placeholder="edd img" required/>
                     </ProductOneWrapImgLabel>
 
                     <ProductOneWrapImgLabel>
                       <ProductOneWrapImgInput ref={getProductImgTwo} type='file' placeholder="edd img" required/>
                     </ProductOneWrapImgLabel> */}
-                  </Slider>
-                  
+                      </Slider>
+                    </ProductOneWrapImg>
+                  </ProductDivOne>
 
-                </ProductOneWrapImg>
-              </ProductDivOne>
+                  <ProductDivTwo>
+                    <ProductDivTwoLabel for="product_name">
+                      Manzil
+                    </ProductDivTwoLabel>
+                    <ProductDivTwoInput
+                      ref={getProductName}
+                      id="product_name"
+                      type={"text"}
+                      name="product_name"
+                      placeholder="masalan: Toshkent"
+                      required
+                    />
 
-              <ProductDivTwo>
-             
+                    <ProductDivTwoLabel for="product_name">
+                      Location
+                    </ProductDivTwoLabel>
+                    <ProductDivTwoInput
+                      ref={getProductLocation}
+                      id="product_price"
+                      type={"text"}
+                      name="product_name"
+                      placeholder="masalan: Buxoro"
+                      required
+                    />
 
-                  <ProductDivTwoLabel for='product_name'>
-                  Manzil
-                   </ProductDivTwoLabel>
-                   <ProductDivTwoInput ref={getProductName} id="product_name" type={'text'} name='product_name' placeholder="masalan: Toshkent" required />
+                    <CotegorWrapSwitch>
+                      <CotegorWrapSpan>Holat</CotegorWrapSpan>
+                      <FormGroup>
+                        <FormControlLabel
+                          onChange={() => setEvent(!event)}
+                          control={<IOSSwitch defaultChecked={event} />}
+                          sx={{
+                            textAlign: "center",
+                            display: "block",
+                            marginLeft: "0px",
+                          }}
+                        />
+                      </FormGroup>
+                    </CotegorWrapSwitch>
+                  </ProductDivTwo>
 
-                   <ProductDivTwoLabel for='product_name'>
-                   Location
-                   </ProductDivTwoLabel>
-                   <ProductDivTwoInput ref={getProductLocation} id="product_price" type={'text'} name='product_name' placeholder="masalan: Buxoro" required />
+                  <ProductDivFour>
+                    <ProductDivTwoLabel>Matn</ProductDivTwoLabel>
 
-                   <CotegorWrapSwitch>
-                <CotegorWrapSpan>Holat</CotegorWrapSpan>
-                <FormGroup>
-                  <FormControlLabel
-                    onChange={() => setEvent(!event)}
-                    control={<IOSSwitch defaultChecked={event} />}
-                    sx={{
-                      textAlign: "center",
-                      display: "block",
-                      marginLeft: "0px",
-                    }}
-                  />
-                </FormGroup>
+                    <ProductDivTwoTextarea
+                      ref={getTextArea}
+                      type={"text"}
+                      name="product_textarea"
+                      placeholder="info..."
+                      required
+                    />
 
-              </CotegorWrapSwitch>
-
-              </ProductDivTwo>
-
-         
-              <ProductDivFour>
-
-                <ProductDivTwoLabel>
-                   Matn
-                   </ProductDivTwoLabel>
-
-                   <ProductDivTwoTextarea ref={getTextArea}  type={'text'} name='product_textarea' placeholder="info..." required />
-
-
-             <CotegorAddBtn
-                type="submit"
-              >
-                Saqlash
-              </CotegorAddBtn>
-
-              </ProductDivFour>
-             
-            </CotegorFormInner>
-
-            </DialogContent>
-
-           
-          </CotegorForm>
-          
-        </Modal>
-        <GlobalLocationModal />
+                    <CotegorAddBtn type="submit">Saqlash</CotegorAddBtn>
+                  </ProductDivFour>
+                </CotegorFormInner>
+              </DialogContent>
+            </CotegorForm>
+          </Modal>
+          <GlobalLocationModal />
         </ProductWrapModal>
-       
-       
 
         {/* delete modal */}
 
-        <Modal  modal={secondModal} setModal={setSeconModal} title="Haqiqatdan ham o’chirmoqchimisiz?" >
-      <CotegorSecondForm onSubmit={HandelDeleteButton} >
-       <DialogContent dividers sx={{width:'124%', display:'flex' , justifyContent:'flex-end'}} >
+        <Modal
+          modal={secondModal}
+          setModal={setSeconModal}
+          title="Haqiqatdan ham o’chirmoqchimisiz?"
+        >
+          <CotegorSecondForm onSubmit={HandelDeleteButton}>
+            <DialogContent
+              dividers
+              sx={{
+                width: "124%",
+                display: "flex",
+                justifyContent: "flex-end",
+              }}
+            >
+              <EditButton type="button" onClick={() => setSeconModal(false)}>
+                YO’Q
+              </EditButton>
 
-        <EditButton type='button' onClick={() => setSeconModal(false)} >
-          YO’Q
-        </EditButton>
-
-    <DeleteButton type='submit' onClick={() => {
-      setSeconModal(false)
-    }} >
-    ha
-    </DeleteButton>
-
-    </DialogContent>
-    
-    </CotegorSecondForm>
-    <GlobalDeletModal />
+              <DeleteButton
+                type="submit"
+                onClick={() => {
+                  setSeconModal(false);
+                }}
+              >
+                ha
+              </DeleteButton>
+            </DialogContent>
+          </CotegorSecondForm>
+          <GlobalDeletModal />
         </Modal>
 
         {/* Edit */}
 
         <ProductWrapModal>
-        <Modal sx={{ width: 815 }}  modal={editModal} setModal={setEditModal} title="Qo’shish"
-        >
+          <Modal
+            sx={{ width: 815 }}
+            modal={editModal}
+            setModal={setEditModal}
+            title="Qo’shish"
+          >
+            <CotegorForm onSubmit={hendlLocationEdit}>
+              <DialogContent dividers sx={{ paddingBottom: "40px" }}>
+                <CotegorFormInner>
+                  <ProductDivOne>
+                    <ProductOneWrapImg>
+                      <Slider {...settings}>
+                        <ProductOneWrapImgLabel>
+                          <ProductOneWrapImgInput
+                            ref={getLocalImg}
+                            type="file"
+                            name="form_img"
+                            placeholder="edd img"
+                            required
+                          />
+                        </ProductOneWrapImgLabel>
 
-         <CotegorForm onSubmit={hendlLocationEdit} >
-            <DialogContent dividers sx={{ paddingBottom: '40px' }}>
-            
-            <CotegorFormInner>
-
-              <ProductDivOne>
-                <ProductOneWrapImg>
-                  <Slider {...settings}>
-
-                    <ProductOneWrapImgLabel>
-                    <ProductOneWrapImgInput ref={getLocalImg} type='file' name="form_img" placeholder="edd img" required/>
-                    </ProductOneWrapImgLabel>
-
-                    {/* <ProductOneWrapImgLabel>
+                        {/* <ProductOneWrapImgLabel>
                       <ProductOneWrapImgInput ref={getLocalImgOne} type='file' name="form_img" placeholder="edd img" required/>
                     </ProductOneWrapImgLabel> */}
 
-                    {/* <ProductOneWrapImgLabel>
+                        {/* <ProductOneWrapImgLabel>
                       <ProductOneWrapImgInput ref={getProductImgTwo} type='file' name="threth_images" placeholder="edd img" required/>
                     </ProductOneWrapImgLabel> */}
-                  </Slider>
-                  
+                      </Slider>
+                    </ProductOneWrapImg>
+                  </ProductDivOne>
 
-                </ProductOneWrapImg>
-              </ProductDivOne>
+                  <ProductDivTwo>
+                    <ProductDivTwoLabel for="product_name">
+                      Manzil
+                    </ProductDivTwoLabel>
+                    <ProductDivTwoInput
+                      defaultValue={getOldName}
+                      ref={getProductName}
+                      id="product_name"
+                      type={"text"}
+                      name="product_name"
+                      placeholder="masalan: Toshkent"
+                      required
+                    />
 
-              <ProductDivTwo>
-             
+                    <ProductDivTwoLabel for="product_name">
+                      Location
+                    </ProductDivTwoLabel>
+                    <ProductDivTwoInput
+                      defaultValue={getOldCost}
+                      ref={getProductLocation}
+                      id="product_price"
+                      type={"text"}
+                      name="product_name"
+                      placeholder="masalan: Buxoro"
+                      required
+                    />
 
-                  <ProductDivTwoLabel for='product_name'>
-                  Manzil
-                   </ProductDivTwoLabel>
-                   <ProductDivTwoInput defaultValue={getOldName} ref={getProductName} id="product_name" type={'text'} name='product_name' placeholder="masalan: Toshkent" required />
+                    <CotegorWrapSwitch>
+                      <CotegorWrapSpan>Holat</CotegorWrapSpan>
+                      <FormGroup>
+                        <FormControlLabel
+                          onChange={() => setEvent(!event)}
+                          control={<IOSSwitch defaultChecked={event} />}
+                          sx={{
+                            textAlign: "center",
+                            display: "block",
+                            marginLeft: "0px",
+                          }}
+                        />
+                      </FormGroup>
+                    </CotegorWrapSwitch>
+                  </ProductDivTwo>
 
-                   <ProductDivTwoLabel for='product_name'>
-                   Location
-                   </ProductDivTwoLabel>
-                   <ProductDivTwoInput defaultValue={getOldCost} ref={getProductLocation} id="product_price" type={'text'} name='product_name' placeholder="masalan: Buxoro" required />
+                  <ProductDivFour>
+                    <ProductDivTwoLabel>Matn</ProductDivTwoLabel>
 
-                   <CotegorWrapSwitch>
-                <CotegorWrapSpan>Holat</CotegorWrapSpan>
-                <FormGroup>
-                  <FormControlLabel
-                    onChange={() => setEvent(!event)}
-                    control={<IOSSwitch defaultChecked={event} />}
-                    sx={{
-                      textAlign: "center",
-                      display: "block",
-                      marginLeft: "0px",
-                    }}
-                  />
-                </FormGroup>
+                    <ProductDivTwoTextarea
+                      defaultValue={getBody}
+                      ref={getTextArea}
+                      type={"text"}
+                      name="product_textarea"
+                      placeholder="info..."
+                      required
+                    />
 
-              </CotegorWrapSwitch>
-
-              </ProductDivTwo>
-
-         
-              <ProductDivFour>
-
-                <ProductDivTwoLabel>
-                   Matn
-                   </ProductDivTwoLabel>
-
-                   <ProductDivTwoTextarea defaultValue={getBody} ref={getTextArea}  type={'text'} name='product_textarea' placeholder="info..." required />
-
-
-             <CotegorAddBtn
-                type="submit"
-              >
-                Saqlash
-              </CotegorAddBtn>
-
-              </ProductDivFour>
-             
-            </CotegorFormInner>
-
-            </DialogContent>
-
-           
-          </CotegorForm>
-          
-        </Modal>
-        <GlobalLocationModal />
+                    <CotegorAddBtn type="submit">Saqlash</CotegorAddBtn>
+                  </ProductDivFour>
+                </CotegorFormInner>
+              </DialogContent>
+            </CotegorForm>
+          </Modal>
+          <GlobalLocationModal />
         </ProductWrapModal>
-
       </Box>
     </CotegorWrapTable>
   );

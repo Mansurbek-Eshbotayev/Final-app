@@ -4,22 +4,21 @@ import { Login } from "./components/Login/Login";
 import { Home } from "./pages/Home/Home";
 const token = localStorage.getItem("token");
 
-
 function App() {
-  if(token){
-    return(
+  if (token) {
+    return (
       <AppStyle>
-      <Routes>
-       <Route path="/*" element={<Home />} />
-      </Routes>
-     </AppStyle>
-    )
+        <Routes>
+          <Route path="/*" element={<Home />} />
+        </Routes>
+      </AppStyle>
+    );
   }
   return (
     <AppStyle>
-     <Routes>
+      <Routes>
         <Route path="/login" element={<Login />} />
-     </Routes>
+      </Routes>
     </AppStyle>
   );
 }

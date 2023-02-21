@@ -93,25 +93,25 @@ export const GlobalModal = createGlobalStyle`
 max-height: calc(100% - 64px);
 min-width: 1110px !important;
 }
-`
+`;
 
 export const GlobalDeletModal = createGlobalStyle`
 .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
 max-height: calc(100% - 64px);
 min-width: 330px !important;
 }
-`
+`;
 
 export const GlobalLocationModal = createGlobalStyle`
 .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
 max-height: calc(100% - 64px);
 min-width: 815px !important;
 }
-`
+`;
 
 export const GlobalTechnologyModal = createGlobalStyle`
 .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
 max-height: calc(100% - 64px);
 min-width: 530px !important;
 }
-`
+`;
