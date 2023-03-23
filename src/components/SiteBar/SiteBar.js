@@ -17,8 +17,10 @@ import {
   HomebarTex,
   HomebarToifa,
 } from "../../assets/images/Icons";
+import { useTranslation } from "react-i18next";
 
 export const SiteBar = () => {
+  const { t } = useTranslation();
   return (
     <SiteBarStyle>
       <SiteLogoWrap>
@@ -35,7 +37,7 @@ export const SiteBar = () => {
             <SiteBarSpan>
               <Homebar />
             </SiteBarSpan>
-            Buyurtmalar
+            {t("nav.order")}
           </NavLink>
         </SiteBarItem>
 
@@ -49,7 +51,7 @@ export const SiteBar = () => {
             <SiteBarSpan>
               <HomebarMan />
             </SiteBarSpan>
-            Сustomers
+            {t("nav.customers")}
           </NavLink>
         </SiteBarItem>
 
@@ -63,7 +65,7 @@ export const SiteBar = () => {
             <SiteBarSpan>
               <HomebarToifa />
             </SiteBarSpan>
-            Toifalar
+            {t("nav.category")}
           </NavLink>
         </SiteBarItem>
 
@@ -77,7 +79,7 @@ export const SiteBar = () => {
             <SiteBarSpan>
               <HomebarMaxsulot />
             </SiteBarSpan>
-            Mahsulotlar
+            {t("nav.product")}
           </NavLink>
         </SiteBarItem>
 
@@ -91,7 +93,7 @@ export const SiteBar = () => {
             <SiteBarSpan>
               <HomebarTex />
             </SiteBarSpan>
-            Texnologiyalar
+            {t("nav.texhnology")}
           </NavLink>
         </SiteBarItem>
 
@@ -105,7 +107,7 @@ export const SiteBar = () => {
             <SiteBarSpan>
               <HomebarManzil />
             </SiteBarSpan>
-            Manzil
+            {t("nav.location")}
           </NavLink>
         </SiteBarItem>
 
@@ -119,7 +121,7 @@ export const SiteBar = () => {
             <SiteBarSpan>
               <HomebarCaro />
             </SiteBarSpan>
-            Carousel
+            {t("nav.carousel")}
           </NavLink>
         </SiteBarItem>
       </SiteBarList>

@@ -20,3 +20,8 @@ export const HeaderStyleMan = styled.h3`
   display: flex;
   align-items: center;
 `;
+
+export const HeaderWrapBox = styled.div`
+  display: flex;
+  align-items: center;
+`;

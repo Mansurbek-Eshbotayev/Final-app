@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "order": "Buyurtmalar",
+    "customers": "Xaridorlar",
+    "category": "Toifalar",
+    "product": "Mahsulotlar",
+    "texhnology": "Texnologiyalar",
+    "location": "Manzil",
+    "carousel": "Carusel"
+  },
+  "order": {
+    "id": "ID",
+    "name": "Nomi",
+    "phone": "Telefon raqam",
+    "product": "Mahsulot nomlari",
+    "amount": "Miqdori",
+    "call": "Qayta aloqa"
+  },
+  "client": {
+    "id": "ID",
+    "date": "Sana",
+    "phone": "Telefon Raqami",
+    "call": "Qayta aloqa"
+  },
+  "category": {
+    "categor": "Toifalar",
+    "name": "Kategoriya nomi"
+  },
+  "product": {
+    "proname": "Mahsulot nomlari",
+    "categor": "Kategoriyalar",
+    "cost": "Narxi",
+    "download": "Yuklama",
+    "size": "Hajmi",
+    "status": "Faol",
+    "photo": "Yangi rasm qo'shish",
+    "old": "Eski fotosurat",
+    "select": "Kategoriyani tanlang",
+    "warranty": "Kafolat",
+    "capacity": "Imkoniyat",
+    "prise": "Aksiya narxi",
+    "information": "Ma`lumot",
+    "discount": "Chegirma",
+    "active": "Faol"
+  },
+  "techno": {
+    "names": "Nomlar",
+    "name": "Nomi",
+    "id": "ID",
+    "video": "Video",
+    "text": "Matn",
+    "picture": "Rasm"
+  },
+  "local": {
+    "address": "Manzil",
+    "text": "Matn",
+    "place": "Joy"
+  },
+  "carousel": {
+    "id": "ID",
+    "title": "Sarlavha",
+    "status": "Holat",
+    "picture": "Rasm",
+    "forname": "Karusel uchun sarlavha",
+    "newforname": "Karusel uchun yangi sarlavha",
+    "old": "Eski fotosurat",
+    "new": "Yangi rasm qo'shish"
+  },
+  "delete": {
+    "realy": "  Haqiqatan ham oʻchirmoqchimisiz?",
+    "yes": "Ha",
+    "no": "Yo'q"
+  },
+  "again": {
+    "add": "Qo'shish",
+    "edit": "Tahrirlash",
+    "status": "Holat"
+  }
+}

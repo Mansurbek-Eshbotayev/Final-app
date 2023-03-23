@@ -98,7 +98,7 @@ min-width: 1110px !important;
 export const GlobalDeletModal = createGlobalStyle`
 .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
 max-height: calc(100% - 64px);
-min-width: 330px !important;
+min-width: 375px !important;
 }
 `;
 
@@ -115,3 +115,12 @@ max-height: calc(100% - 64px);
 min-width: 530px !important;
 }
 `;
+
+export const GlobalSwitch = createGlobalStyle`
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+max-height: calc(100% - 64px);
+min-width: 530px !important;
+}
+`;
+
+// Mui

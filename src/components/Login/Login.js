@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useRef } from "react";
 import { useNavigate } from "react-router";
-// import { useNavigate } from 'react-router';
 import {
   FormButton,
   FormInputStyle,
@@ -19,8 +18,6 @@ export const Login = () => {
 
   const handlFormSubmit = (evt) => {
     evt.preventDefault();
-    // console.log(valueRaf.current.value);
-    // console.log(passwordRef.current.value);
 
     axios
       .post("http://localhost:1212/admin/login", {
@@ -30,7 +27,7 @@ export const Login = () => {
       .then((data) => {
         if (data.status === 200) {
           localStorage.setItem("token", data.data.token);
-          navigate("/");
+          navigate("/buyurtmalar");
         }
         console.log(data);
       })

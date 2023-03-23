@@ -11,7 +11,7 @@ export const SiteLogoWrap = styled.div`
   display: flex;
   /* align-items: center; */
   justify-content: center;
-  padding: 20px 0 19px 0;
+  padding: 20px 0 20px 0;
   box-shadow: 0px 0px 0px 1px #022837;
   border-right: 1px solid #022837;
 `;

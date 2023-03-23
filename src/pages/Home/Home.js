@@ -1,15 +1,15 @@
 import React from "react";
 import { Route, Routes } from "react-router";
-import { Header } from "../../components/Header/Header";
-import { SiteBar } from "../../components/SiteBar/SiteBar";
-import { Carousel } from "../../Tables/Carousel/Carousel";
-import { Categories } from "../../Tables/Categories/Categories";
-import { CustomerTable } from "../../Tables/CustomerTable/CustomerTable";
-import { Location } from "../../Tables/Location/Location";
-import { OrderTable } from "../../Tables/OrderTable/OrderTable";
-import { Product } from "../../Tables/Product/Product";
-import { Technology } from "../../Tables/Technology/Technology";
+import { Header } from "../../components/Header";
+import { SiteBar } from "../../components/SiteBar";
+import { CustomerTable } from "../CustomerTable";
+import { OrderTable } from "../OrderTable";
 import { HomeMainWrap, HomeMainWrapTable, HomeWrap } from "./HomeStyle";
+import { TechnologyTable } from "../TechnologyTable";
+import { CarouselTable } from "../Carouseltable";
+import { LocationTable } from "../LocationTable";
+import { ProductTable } from "../ProductTab";
+import CategoryTable from "../CategoryTable/CategoryTable";
 
 export const Home = () => {
   return (
@@ -21,11 +21,11 @@ export const Home = () => {
           <Routes>
             <Route path="buyurtmalar" element={<OrderTable />} />
             <Route path="customers" element={<CustomerTable />} />
-            <Route path="toifalar" element={<Categories />} />
-            <Route path="mahsulotlar" element={<Product />} />
-            <Route path="texnologiyalar" element={<Technology />} />
-            <Route path="manzil" element={<Location />} />
-            <Route path="carousel" element={<Carousel />} />
+            <Route path="toifalar" element={<CategoryTable />} />
+            <Route path="mahsulotlar" element={<ProductTable />} />
+            <Route path="texnologiyalar" element={<TechnologyTable />} />
+            <Route path="manzil" element={<LocationTable />} />
+            <Route path="carousel" element={<CarouselTable />} />
           </Routes>
         </HomeMainWrapTable>
       </HomeMainWrap>

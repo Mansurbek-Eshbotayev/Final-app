@@ -1,12 +1,14 @@
 import React from "react";
 import Man from "../../assets/images/me.jpg";
-import { Search } from "../Search/Search";
-import { HeaderStyle, HeaderStyleMan } from "./HeaderStyle";
+import { Search } from "../Search";
+import { HeaderStyle, HeaderStyleMan, HeaderWrapBox } from "./HeaderStyle";
 
 import { styled } from "@mui/material/styles";
 import Badge from "@mui/material/Badge";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
+import { SelectLang } from "../SelectLang";
+import { SelectTheme } from "../../theme/SelectTheme";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -37,10 +39,14 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-export const Header = () => {
+export const Header = ({ setThemeMode }) => {
   return (
     <HeaderStyle>
-      <Search />
+      <HeaderWrapBox>
+        <Search />
+        <SelectLang />
+        <SelectTheme />
+      </HeaderWrapBox>
 
       <Stack direction="row" spacing={2}>
         <StyledBadge

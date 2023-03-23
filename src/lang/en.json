@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "order": "Orders",
+    "customers": "Customers",
+    "category": "Category",
+    "product": "Products",
+    "texhnology": "Texhnology",
+    "location": "Location",
+    "carousel": "Carousel"
+  },
+  "order": {
+    "id": "ID",
+    "name": "Name",
+    "phone": "Phone number",
+    "product": "Product names",
+    "amount": "Amount",
+    "call": "Call back"
+  },
+  "client": {
+    "id": "ID",
+    "date": "Date",
+    "phone": "Phone number",
+    "call": "Call back"
+  },
+  "category": {
+    "categor": "Categories",
+    "name": "Category name"
+  },
+  "product": {
+    "proname": "Product names",
+    "categor": "Categories",
+    "cost": "Cost",
+    "download": "Download",
+    "size": "Size",
+    "status": "Is Active",
+    "photo": "Add New Photo",
+    "old": "Old Photo",
+    "select": "Select a category",
+    "warranty": "Warranty",
+    "capacity": "Capacity",
+    "prise": "Stock Price",
+    "information": "Information",
+    "discount": "Discount",
+    "active": "Active"
+  },
+  "techno": {
+    "names": "Names",
+    "name": "Name",
+    "id": "ID",
+    "video": "Video",
+    "text": "Text",
+    "picture": "Picture"
+  },
+  "local": {
+    "address": "Address",
+    "text": "Text",
+    "place": "Place"
+  },
+  "carousel": {
+    "id": "ID",
+    "title": "Title",
+    "status": "Is Active",
+    "picture": "Picture",
+    "forname": "Title for Carousel",
+    "newforname": "A new title for Carousel",
+    "old": "Old Photo",
+    "new": "Add New Photo"
+  },
+  "delete": {
+    "realy": "Are you sure you want to delete it?",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "again": {
+    "add": "Add",
+    "edit": "Edit",
+    "status": "Status"
+  }
+}
