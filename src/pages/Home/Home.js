@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router";
 import { Header } from "../../components/Header";
 import { SiteBar } from "../../components/SiteBar";
 import { CustomerTable } from "../CustomerTable";
-import { OrderTable } from "../OrderTable";
+import { Orders } from "../Orders";
 import { HomeMainWrap, HomeMainWrapTable, HomeWrap } from "./HomeStyle";
 import { TechnologyTable } from "../TechnologyTable";
 import { CarouselTable } from "../Carouseltable";
@@ -19,7 +19,7 @@ export const Home = () => {
         <Header />
         <HomeMainWrapTable>
           <Routes>
-            <Route path="buyurtmalar" element={<OrderTable />} />
+            <Route path="buyurtmalar" element={<Orders />} />
             <Route path="customers" element={<CustomerTable />} />
             <Route path="toifalar" element={<CategoryTable />} />
             <Route path="mahsulotlar" element={<ProductTable />} />

@@ -1,19 +1,18 @@
-import { Switch } from "@mui/material";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-
-import ReusableTable from "../../components/Table/ReUsefulTabele";
-import { SearchContext } from "../../context/CreateZustand";
+import { SwitchTable } from "../../../components/shared/switch";
+import MaterialTable from "../../../components/shared/Table/Tabele";
+import useSearchStore from "../../../context/CreateZustand";
 import {
   getElementServices,
   searchElementServices,
-} from "../../services/ServicesGenerator";
+} from "../../../services/ServicesGenerator";
 
 export const OrderTable = () => {
   const { t } = useTranslation();
   const [orders, setOrders] = useState([]);
   const [orders1, setOrders1] = useState([]);
-  const { searchValue } = useContext(SearchContext);
+  const searchValue = useSearchStore((state) => state.searchValue);
 
   // search orders
   useEffect(() => {
@@ -46,20 +45,11 @@ export const OrderTable = () => {
     product: item.product_name,
     amount: item.count,
     phone: item.number,
-    call: (
-      <Switch
-        sx={{ textAlign: "center" }}
-        defaultChecked={true}
-        color="primary"
-        onChange={(defaultChecked) => {
-          defaultChecked = !defaultChecked;
-        }}
-      />
-    ),
+    call: <SwitchTable status={true} />,
   }));
   return (
     <>
-      <ReusableTable columns={columns} rows={rows} />
+      <MaterialTable columns={columns} rows={rows} />
     </>
   );
 };

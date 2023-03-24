@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { SearchContext } from "../../context/CreateZustand";
+import useSearchStore from "../../context/CreateZustand";
 
 import ThemeContext from "../../theme/ThemeContex";
 import { SerchLabel, SerchLabelInput } from "./SearchStyle";
@@ -7,7 +7,7 @@ import { SerchLabel, SerchLabelInput } from "./SearchStyle";
 export const Search = () => {
   const { themeMode } = useContext(ThemeContext);
 
-  const { searchValue, setSearchValue } = useContext(SearchContext);
+  const setSearchValue = useSearchStore((state) => state?.setSearchValue);
 
   const handleSearchInputChange = (event) => {
     const { value } = event.target;

@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Paper,
   Table,
@@ -7,22 +8,12 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import React from "react";
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-});
-
-function ReusableTable({ columns, rows }) {
-  const classes = useStyles();
-
+function MaterialTable({ columns, rows }) {
   return (
     <>
       <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="simple table">
+        <Table aria-label="simple table">
           <TableHead bgcolor="#01384D" sx={{ border: "1px solid #B3C3CA" }}>
             <TableRow>
               {columns.map((column) => (
@@ -53,4 +44,4 @@ function ReusableTable({ columns, rows }) {
   );
 }
 
-export default ReusableTable;
+export default MaterialTable;

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { DeleteIcon, EditIcon } from "../../assets/images/Icons";
 import { Modal } from "../../components/Modal";
 import { ModalForDelete } from "../../components/ModalForDelete";
-import ReusableTable from "../../components/Table/ReUsefulTabele";
+import ReusableTable from "../../components/shared/Table/Tabele";
 import {
   DialogActions,
   DialogContent,

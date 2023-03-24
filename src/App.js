@@ -7,7 +7,7 @@ import i18n from "./lang/LangGenerator";
 import { useState } from "react";
 import { darkTheme, lightTheme } from "./theme/ThemeGenertor";
 import ThemeContext from "./theme/ThemeContex";
-import useSearchStore, { SearchContext } from "./context/CreateZustand";
+import useSearchStore from "./context/CreateZustand";
 
 const token = localStorage.getItem("token");
 
@@ -27,11 +27,9 @@ function App() {
       <ThemeContext.Provider value={{ themeMode, setThemeMode }}>
         <ThemeProvider theme={theme}>
           <AppStyle theme={theme.palette.mode}>
-            <SearchContext.Provider value={searchStore}>
-              <Routes>
-                <Route path="/*" element={<Home />} />
-              </Routes>
-            </SearchContext.Provider>
+            <Routes>
+              <Route path="/*" element={<Home />} />
+            </Routes>
           </AppStyle>
         </ThemeProvider>
       </ThemeContext.Provider>

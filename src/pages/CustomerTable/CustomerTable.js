@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DeleteIcon } from "../../assets/images/Icons";
 import { ModalForDelete } from "../../components/ModalForDelete";
-import ReusableTable from "../../components/Table/ReUsefulTabele";
+import ReusableTable from "../../components/shared/Table/Tabele";
 import { getElementServices } from "../../services/ServicesGenerator";
 import { CostumBtn, CostumBtnWrap } from "./CustomerTableStyle";
 
