@@ -3,7 +3,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { GlobalTechnologyModal } from "../../../assets/styles/AppGlobalCss";
 import { Modal } from "../../../components/Modal";
-import { useEditStore, useModalStore } from "../../../context/TechnologyContex";
+import { useTechnology } from "../../../context/TechnologyContex";
 import { TechnoSchema } from "../models/TechnoSchema";
 import {
   editElementServices,
@@ -13,8 +13,8 @@ import { ExitButton } from "./TechnologyStyle";
 import { FormTrchnology } from "../components/FormTrchnology";
 
 export const TechnologyFormBox = () => {
-  const idForEdit = useEditStore((state) => state?.idForEdit);
-  const [isOpenModal, setIsOpenModal] = useModalStore((state) => [
+  const idForEdit = useTechnology((state) => state?.idForEdit);
+  const [isOpenModal, setIsOpenModal] = useTechnology((state) => [
     state.isOpenModal,
     state.setIsOpenModal,
   ]);

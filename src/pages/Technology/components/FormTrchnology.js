@@ -2,7 +2,7 @@ import { DialogActions, DialogContent } from "@mui/material";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { SwitchTable } from "../../../components/shared/switch";
-import { useEditStore } from "../../../context/TechnologyContex";
+import { useTechnology } from "../../../context/TechnologyContex";
 import {
   CotegorAddBtn,
   CotegorForm,
@@ -17,7 +17,7 @@ import {
 } from "../containers/TechnologyStyle";
 
 export const FormTrchnology = ({ formik }) => {
-  const idForEdit = useEditStore((state) => state?.idForEdit);
+  const idForEdit = useTechnology((state) => state?.idForEdit);
   const { t } = useTranslation();
 
   const { getFieldProps } = formik;

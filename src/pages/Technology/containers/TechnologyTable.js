@@ -4,13 +4,13 @@ import { DeleteIcon, EditIcon } from "../../../assets/images/Icons";
 import { ModalForDelete } from "../../../components/ModalForDelete";
 import MaterialTable from "../../../components/shared/Table/Tabele";
 import useDeleteModalStore from "../../../context/OpenDeleteContex";
-import { useEditStore, useModalStore } from "../../../context/TechnologyContex";
+import { useTechnology } from "../../../context/TechnologyContex";
 import { getElementServices } from "../../../services/ServicesGenerator";
 import { DeleteBtn, EditBtn } from "./TechnologyStyle";
 
 export const TechnologyTable = () => {
-  const setIsOpenModal = useModalStore((state) => state?.setIsOpenModal);
-  const setIdForEdit = useEditStore((state) => state?.setIdForEdit);
+  const setIsOpenModal = useTechnology((state) => state?.setIsOpenModal);
+  const setIdForEdit = useTechnology((state) => state?.setIdForEdit);
   const setIsOpenDeleteModal = useDeleteModalStore(
     (state) => state?.setIsOpenDeleteModal
   );
