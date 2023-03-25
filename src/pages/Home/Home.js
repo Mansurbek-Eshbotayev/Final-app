@@ -5,7 +5,7 @@ import { SiteBar } from "../../components/SiteBar";
 import { CustomerTable } from "../CustomerTable";
 import { Orders } from "../Orders";
 import { HomeMainWrap, HomeMainWrapTable, HomeWrap } from "./HomeStyle";
-import { TechnologyTable } from "../TechnologyTable";
+import { Technology } from "../Technology";
 import { CarouselTable } from "../Carouseltable";
 import { Location } from "../Location";
 import { ProductTable } from "../ProductTab";
@@ -23,7 +23,7 @@ export const Home = () => {
             <Route path="customers" element={<CustomerTable />} />
             <Route path="toifalar" element={<CategoryTable />} />
             <Route path="mahsulotlar" element={<ProductTable />} />
-            <Route path="texnologiyalar" element={<TechnologyTable />} />
+            <Route path="texnologiyalar" element={<Technology />} />
             <Route path="manzil" element={<Location />} />
             <Route path="carousel" element={<CarouselTable />} />
           </Routes>
