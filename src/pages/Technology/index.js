@@ -1,17 +1,17 @@
-import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { TechnologyForm } from "./containers/TechnologyForm";
+import { TechnologyFormBox } from "./containers/TechnologyFormBox";
 import TechnologyTable from "./containers/TechnologyTable";
 import { PostBtn } from "./containers/TechnologyStyle";
+import { useEditStore, useModalStore } from "../../context/TechnologyContex";
 
 export const Technology = () => {
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  const [idForEdit, setIdForEdit] = useState("");
+  const setIsOpenModal = useModalStore((state) => state?.setIsOpenModal);
+  const setIdForEdit = useEditStore((state) => state?.setIdForEdit);
   const { t } = useTranslation();
 
   return (
     <>
-      <TechnologyTable setEeditId={setIdForEdit} setModal={setIsOpenModal} />
+      <TechnologyTable />
 
       <PostBtn
         onClick={() => {
@@ -22,11 +22,7 @@ export const Technology = () => {
         {t("again.add")}
       </PostBtn>
 
-      <TechnologyForm
-        modal={isOpenModal}
-        setModal={setIsOpenModal}
-        editId={idForEdit}
-      />
+      <TechnologyFormBox />
     </>
   );
 };

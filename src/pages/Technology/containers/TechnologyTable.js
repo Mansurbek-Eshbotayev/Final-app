@@ -3,15 +3,20 @@ import { useTranslation } from "react-i18next";
 import { DeleteIcon, EditIcon } from "../../../assets/images/Icons";
 import { ModalForDelete } from "../../../components/ModalForDelete";
 import MaterialTable from "../../../components/shared/Table/Tabele";
+import useDeleteModalStore from "../../../context/OpenDeleteContex";
+import { useEditStore, useModalStore } from "../../../context/TechnologyContex";
 import { getElementServices } from "../../../services/ServicesGenerator";
 import { DeleteBtn, EditBtn } from "./TechnologyStyle";
 
-export const TechnologyTable = ({ setEeditId, setModal }) => {
-  const [isOpenDeleteModal, setisOpenDeleteModal] = useState(false);
+export const TechnologyTable = () => {
+  const setIsOpenModal = useModalStore((state) => state?.setIsOpenModal);
+  const setIdForEdit = useEditStore((state) => state?.setIdForEdit);
+  const setIsOpenDeleteModal = useDeleteModalStore(
+    (state) => state?.setIsOpenDeleteModal
+  );
   const [deleteNumId, setDeleteNumId] = useState("");
   const { t } = useTranslation();
   const [technology, setTechnology] = useState([]);
-  console.log(technology);
 
   useEffect(() => {
     getElementServices("/technology", setTechnology);
@@ -38,8 +43,8 @@ export const TechnologyTable = ({ setEeditId, setModal }) => {
     edit: (
       <EditBtn
         onClick={() => {
-          setModal(true);
-          setEeditId(item.id);
+          setIsOpenModal(true);
+          setIdForEdit(item.id);
         }}
       >
         <EditIcon />
@@ -50,7 +55,7 @@ export const TechnologyTable = ({ setEeditId, setModal }) => {
         sx={{ textAlign: "end" }}
         onClick={() => {
           setDeleteNumId(item.id);
-          setisOpenDeleteModal(true);
+          setIsOpenDeleteModal(true);
         }}
       >
         <DeleteIcon />
@@ -62,12 +67,7 @@ export const TechnologyTable = ({ setEeditId, setModal }) => {
       <MaterialTable columns={columns} rows={rows} />
 
       {/* Modal for delete */}
-      <ModalForDelete
-        isOpen={isOpenDeleteModal}
-        setIsOpen={setisOpenDeleteModal}
-        whatDelete={"technology"}
-        deleteId={deleteNumId}
-      />
+      <ModalForDelete whatDelete={"technology"} deleteId={deleteNumId} />
     </>
   );
 };

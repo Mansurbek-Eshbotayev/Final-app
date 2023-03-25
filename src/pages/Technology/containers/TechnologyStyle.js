@@ -119,3 +119,13 @@ export const LabelTitle = styled.span`
   display: block;
   margin-bottom: 10px;
 `;
+
+export const LabeleError = styled.span`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: red;
+  display: block;
+  margin-bottom: 10px;
+`;
