@@ -1,48 +1,10 @@
 import styled from "styled-components";
-import exit from "../../assets/images/exit.svg";
+import exit from "../../../assets/images/exit.svg";
 
-export const CostumBtnWrap = styled.div`
-  display: flex;
-  justify-content: flex-end;
-`;
-
-export const CostumBtn = styled.button`
-  width: 34px;
-  height: 34px;
-  border: none;
-  background-color: #fbe9e9;
-  border-radius: 5px;
-`;
-
-export const EditButton = styled.button`
-  padding: 9px 28px;
-  border: none;
-  background-color: transparent;
-`;
-
-export const DeleteButton = styled.button`
-  padding: 9px 28px;
-  background: #fbe9e9;
-  color: #d61f1f;
-  border: none;
-  border-radius: 5px;
-`;
-
-export const CotegoryEditBtn = styled.button`
-  width: 34px;
-  height: 34px;
-  border: none;
-  background-color: #e6ebed;
-  border-radius: 5px;
-`;
-
-export const CotegoryWrapBtn = styled.div`
+export const PostBtn = styled.button`
   position: absolute;
-  top: 92%;
+  top: 90%;
   right: 30px;
-`;
-
-export const CotegoryPostBtn = styled.button`
   font-style: normal;
   font-weight: 600;
   font-size: 15px;
@@ -53,6 +15,14 @@ export const CotegoryPostBtn = styled.button`
   color: #ffffff;
   background-color: #01384d;
   border-radius: 8px;
+`;
+
+export const CotegoryEditBtn = styled.button`
+  width: 34px;
+  height: 34px;
+  border: none;
+  background-color: #e6ebed;
+  border-radius: 5px;
 `;
 
 export const ExitButton = styled.button`
@@ -84,20 +54,6 @@ export const CotegorText = styled.p`
   color: #000000;
 `;
 
-export const CotegorWrapSwitch = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const CotegorWrapSpan = styled.span`
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  color: #000000;
-`;
-
 export const CotegorAddBtn = styled.button`
   width: 100%;
   font-style: normal;
@@ -111,4 +67,28 @@ export const CotegorAddBtn = styled.button`
   border-radius: 7px;
   display: block;
   padding: 14px;
+`;
+
+export const WrapSwitch = styled.div`
+  width: 220px;
+  padding-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const SwitchTitle = styled.span`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+`;
+
+export const DeleteBtn = styled.button`
+  width: 34px;
+  height: 34px;
+  border: none;
+  background-color: #fbe9e9;
+  border-radius: 5px;
 `;
