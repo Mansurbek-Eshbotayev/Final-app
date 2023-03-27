@@ -5,7 +5,7 @@ import { SiteBar } from "../../components/SiteBar";
 import { CustomerTable } from "../CustomerTable";
 import { Orders } from "../Orders";
 import { HomeMainWrap, HomeMainWrapTable, HomeWrap } from "./HomeStyle";
-import { TechnologyTable } from "../TechnologyTable";
+import { TechnologyTable } from "../TechnologyTable/TechnologyTable";
 import { CarouselTable } from "../Carouseltable";
 import { Location } from "../Location";
 import { ProductTable } from "../ProductTab";

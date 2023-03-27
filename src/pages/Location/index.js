@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { LocationForm } from "./containers/LocationForm";
+import { useLocation } from "../../context/LocationContex";
+import { LocationForm, LocationFormBox } from "./containers/LocationFormBox";
 import LocationTable from "./containers/LocationTable";
 import { PostBtn } from "./containers/LocationTableStyle";
 
 export const Location = () => {
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  const [idForEdit, setIdForEdit] = useState("");
+  const setIsOpenModal = useLocation((state) => state?.setIsOpenModal);
+  const setIdForEdit = useLocation((state) => state?.setIdForEdit);
   const { t } = useTranslation();
 
   return (
     <>
-      <LocationTable setEeditId={setIdForEdit} setModal={setIsOpenModal} />
+      <LocationTable />
 
       <PostBtn
         onClick={() => {
@@ -22,11 +23,7 @@ export const Location = () => {
         {t("again.add")}
       </PostBtn>
 
-      <LocationForm
-        modal={isOpenModal}
-        setModal={setIsOpenModal}
-        editId={idForEdit}
-      />
+      <LocationFormBox />
     </>
   );
 };

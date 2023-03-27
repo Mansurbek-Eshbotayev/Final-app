@@ -146,3 +146,13 @@ export const Textarea = styled.textarea`
   margin-bottom: 23px;
   resize: none;
 `;
+
+export const LabelError = styled.span`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: red;
+  display: block;
+  margin-bottom: 5px;
+`;
