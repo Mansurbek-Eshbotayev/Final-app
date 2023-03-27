@@ -8,7 +8,7 @@ import { HomeMainWrap, HomeMainWrapTable, HomeWrap } from "./HomeStyle";
 import { TechnologyTable } from "../TechnologyTable";
 import { CarouselTable } from "../Carouseltable";
 import { Location } from "../Location";
-import { ProductTable } from "../ProductTab";
+import { Products } from "../Products";
 import CategoryTable from "../CategoryTable/CategoryTable";
 
 export const Home = () => {
@@ -22,7 +22,7 @@ export const Home = () => {
             <Route path="buyurtmalar" element={<Orders />} />
             <Route path="customers" element={<CustomerTable />} />
             <Route path="toifalar" element={<CategoryTable />} />
-            <Route path="mahsulotlar" element={<ProductTable />} />
+            <Route path="mahsulotlar" element={<Products />} />
             <Route path="texnologiyalar" element={<TechnologyTable />} />
             <Route path="manzil" element={<Location />} />
             <Route path="carousel" element={<CarouselTable />} />
