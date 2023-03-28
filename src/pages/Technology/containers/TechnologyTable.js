@@ -62,7 +62,6 @@ export const TechnologyTable = () => {
   return (
     <>
       <MaterialTable columns={columns} rows={rows} />
-
       {/* Modal for delete */}
       <ModalForDelete
         isOpen={isOpenDeleteModal}
