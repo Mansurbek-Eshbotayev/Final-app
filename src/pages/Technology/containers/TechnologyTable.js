@@ -3,17 +3,14 @@ import { useTranslation } from "react-i18next";
 import { DeleteIcon, EditIcon } from "../../../assets/images/Icons";
 import { ModalForDelete } from "../../../components/ModalForDelete";
 import MaterialTable from "../../../components/shared/Table/Tabele";
-import useDeleteModalStore from "../../../context/OpenDeleteContex";
 import { useTechnology } from "../../../context/TechnologyContex";
 import { getElementServices } from "../../../services/ServicesGenerator";
 import { DeleteBtn, EditBtn } from "./TechnologyStyle";
 
 export const TechnologyTable = () => {
+  const [isOpenDeleteModal, setisOpenDeleteModal] = useState(false);
   const setIsOpenModal = useTechnology((state) => state?.setIsOpenModal);
   const setIdForEdit = useTechnology((state) => state?.setIdForEdit);
-  const setIsOpenDeleteModal = useDeleteModalStore(
-    (state) => state?.setIsOpenDeleteModal
-  );
   const [deleteNumId, setDeleteNumId] = useState("");
   const { t } = useTranslation();
   const [technology, setTechnology] = useState([]);
@@ -55,7 +52,7 @@ export const TechnologyTable = () => {
         sx={{ textAlign: "end" }}
         onClick={() => {
           setDeleteNumId(item.id);
-          setIsOpenDeleteModal(true);
+          setisOpenDeleteModal(true);
         }}
       >
         <DeleteIcon />
@@ -67,7 +64,12 @@ export const TechnologyTable = () => {
       <MaterialTable columns={columns} rows={rows} />
 
       {/* Modal for delete */}
-      <ModalForDelete whatDelete={"technology"} deleteId={deleteNumId} />
+      <ModalForDelete
+        isOpen={isOpenDeleteModal}
+        setIsOpen={setisOpenDeleteModal}
+        whatDelete={"technology"}
+        deleteId={deleteNumId}
+      />
     </>
   );
 };
