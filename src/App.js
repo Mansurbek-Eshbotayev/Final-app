@@ -12,10 +12,6 @@ import useSearchStore from "./context/CreateZustand";
 const token = localStorage.getItem("token");
 
 function App() {
-  // search provider
-  const searchStore = useSearchStore();
-  // console.log(searchStore);
-
   // Theme provider
   const [themeMode, setThemeMode] = useState(
     localStorage.getItem("theme") || "light"
