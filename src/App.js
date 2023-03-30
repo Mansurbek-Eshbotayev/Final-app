@@ -7,7 +7,6 @@ import i18n from "./lang/LangGenerator";
 import { useState } from "react";
 import { darkTheme, lightTheme } from "./theme/ThemeGenertor";
 import ThemeContext from "./theme/ThemeContex";
-import useSearchStore from "./context/CreateZustand";
 
 const token = localStorage.getItem("token");
 
