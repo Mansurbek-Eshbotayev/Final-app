@@ -6,7 +6,7 @@ import { Customers } from "../Customers";
 import { Orders } from "../Orders";
 import { HomeMainWrap, HomeMainWrapTable, HomeWrap } from "./HomeStyle";
 import { TechnologyTable } from "../TechnologyTable";
-import { CarouselTable } from "../Carouseltable";
+import { CarouselTable } from "../Carouseltable/CarouselTable";
 import { Location } from "../Location";
 import { ProductTable } from "../ProductTab";
 import { Category } from "../Category";
@@ -21,11 +21,11 @@ export const Home = () => {
           <Routes>
             <Route path="buyurtmalar" element={<Orders />} />
 
-            <Route path="customers" element={<CustomerTable />} />
+            <Route path="customers" element={<Customers />} />
             <Route path="toifalar" element={<Category />} />
 
             <Route path="customers" element={<Customers />} />
-            <Route path="toifalar" element={<CategoryTable />} />
+            <Route path="toifalar" element={<Category />} />
 
             <Route path="mahsulotlar" element={<ProductTable />} />
             <Route path="texnologiyalar" element={<TechnologyTable />} />

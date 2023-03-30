@@ -22,7 +22,7 @@ export const CustomerTable = () => {
     { id: "date", label: t("client.date"), width: 170, align: "center" },
     { id: "phone", label: t("client.phone"), width: 210, align: "center" },
     { id: "call", label: t("client.call"), width: 130, align: "center" },
-    { id: "", width: 177 },
+    { id: "", width: 580 },
     { id: "delete", label: "", width: "" },
   ];
 
