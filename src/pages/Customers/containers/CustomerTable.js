@@ -1,11 +1,11 @@
-import { Switch } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { DeleteIcon } from "../../assets/images/Icons";
-import { ModalForDelete } from "../../components/ModalForDelete";
-import ReusableTable from "../../components/shared/Table/Tabele";
-import { getElementServices } from "../../services/ServicesGenerator";
-import { CostumBtn, CostumBtnWrap } from "./CustomerTableStyle";
+import { DeleteIcon } from "../../../assets/images/Icons";
+import { ModalForDelete } from "../../../components/ModalForDelete";
+import { SwitchTable } from "../../../components/shared/switch";
+import ReusableTable from "../../../components/shared/Table/Tabele";
+import { getElementServices } from "../../../services/ServicesGenerator";
+import { DeleteBtn } from "./CustomerTableStyle";
 
 export const CustomerTable = () => {
   const [isOpenDeleteModal, setisOpenDeleteModal] = useState(false);
@@ -22,6 +22,7 @@ export const CustomerTable = () => {
     { id: "date", label: t("client.date"), width: 170, align: "center" },
     { id: "phone", label: t("client.phone"), width: 210, align: "center" },
     { id: "call", label: t("client.call"), width: 130, align: "center" },
+    { id: "", width: 580 },
     { id: "delete", label: "", width: "" },
   ];
 
@@ -29,34 +30,22 @@ export const CustomerTable = () => {
     id: item.id,
     date: item.time,
     phone: item.number,
-    call: (
-      <Switch
-        sx={{ textAlign: "center" }}
-        defaultChecked={true}
-        color="primary"
-        onChange={(defaultChecked) => {
-          defaultChecked = !defaultChecked;
-        }}
-      />
-    ),
+    call: <SwitchTable status={true} />,
     delete: (
-      <CostumBtnWrap>
-        <CostumBtn
-          sx={{ textAlign: "end" }}
-          onClick={() => {
-            setDeleteNumId(item.id);
-            setisOpenDeleteModal(true);
-          }}
-        >
-          <DeleteIcon />
-        </CostumBtn>
-      </CostumBtnWrap>
+      <DeleteBtn
+        sx={{ textAlign: "end" }}
+        onClick={() => {
+          setDeleteNumId(item.id);
+          setisOpenDeleteModal(true);
+        }}
+      >
+        <DeleteIcon />
+      </DeleteBtn>
     ),
   }));
   return (
     <>
       <ReusableTable columns={columns} rows={rows} />
-
       {/* Modal for delete */}
       <ModalForDelete
         isOpen={isOpenDeleteModal}

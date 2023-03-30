@@ -1,61 +1,47 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { DeleteIcon, EditIcon } from "../../../assets/images/Icons";
 import { ModalForDelete } from "../../../components/ModalForDelete";
 import ReusableTable from "../../../components/shared/Table/Tabele";
+import { useCategory } from "../../../context/CategoryContex";
 import { getElementServices } from "../../../services/ServicesGenerator";
-import {
-  DeleteIcon,
-  EditIcon,
-  LocationImg,
-} from "../../../assets/images/Icons";
-import { DeleteBtn, EditBtn } from "./LocationTableStyle";
-import { useLocation } from "../../../context/LocationContex";
+import { CotegoryEditBtn, DeleteBtn } from "./CategoryStyle";
 
-export const LocationTable = () => {
+export const CategoryTable = () => {
   const [isOpenDeleteModal, setisOpenDeleteModal] = useState(false);
+  const setIsOpenModal = useCategory((state) => state?.setIsOpenModal);
+  const setIdForEdit = useCategory((state) => state?.setIdForEdit);
   const [deleteNumId, setDeleteNumId] = useState("");
-  const setIsOpenModal = useLocation((state) => state?.setIsOpenModal);
-  const setIdForEdit = useLocation((state) => state?.setIdForEdit);
   const { t } = useTranslation();
-  const [Location, setLocation] = useState([]);
+  const [category, setCategory] = useState([]);
 
   useEffect(() => {
-    getElementServices("/address", setLocation);
+    getElementServices("/categories", setCategory);
   }, []);
 
   const columns = [
-    { id: "locatin", label: t("local.address"), width: "22%", align: "center" },
     {
-      id: "text",
-      label: t("local.text"),
-      width: "22%",
-      align: "center",
+      id: "category",
+      label: t("category.categor"),
+      width: "100%",
+      align: "start",
     },
-    {
-      id: "place",
-      label: t("local.place"),
-      width: "10%",
-      align: "center",
-    },
-    { id: "space", label: "", width: "100%" },
     { id: "edit", label: "", width: "" },
     { id: "delete", label: "", width: "" },
   ];
 
-  const rows = Location.map((item) => ({
-    locatin: item.location,
-    text: item.location,
+  const rows = category.map((item) => ({
+    category: item.category,
     id: item.id,
-    place: <LocationImg />,
     edit: (
-      <EditBtn
+      <CotegoryEditBtn
         onClick={() => {
           setIsOpenModal(true);
           setIdForEdit(item.id);
         }}
       >
         <EditIcon />
-      </EditBtn>
+      </CotegoryEditBtn>
     ),
     delete: (
       <DeleteBtn
@@ -77,11 +63,11 @@ export const LocationTable = () => {
       <ModalForDelete
         isOpen={isOpenDeleteModal}
         setIsOpen={setisOpenDeleteModal}
-        whatDelete={"address"}
+        whatDelete={"categories"}
         deleteId={deleteNumId}
       />
     </>
   );
 };
 
-export default LocationTable;
+export default CategoryTable;
