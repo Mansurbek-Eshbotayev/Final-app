@@ -9,10 +9,13 @@ import {
   LocationImg,
 } from "../../../assets/images/Icons";
 import { DeleteBtn, EditBtn } from "./LocationTableStyle";
+import { useLocation } from "../../../context/LocationContex";
 
-export const LocationTable = ({ setEeditId, setModal }) => {
+export const LocationTable = () => {
   const [isOpenDeleteModal, setisOpenDeleteModal] = useState(false);
   const [deleteNumId, setDeleteNumId] = useState("");
+  const setIsOpenModal = useLocation((state) => state?.setIsOpenModal);
+  const setIdForEdit = useLocation((state) => state?.setIdForEdit);
   const { t } = useTranslation();
   const [Location, setLocation] = useState([]);
 
@@ -47,8 +50,8 @@ export const LocationTable = ({ setEeditId, setModal }) => {
     edit: (
       <EditBtn
         onClick={() => {
-          setModal(true);
-          setEeditId(item.id);
+          setIsOpenModal(true);
+          setIdForEdit(item.id);
         }}
       >
         <EditIcon />
