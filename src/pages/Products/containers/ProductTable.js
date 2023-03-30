@@ -1,52 +1,74 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { DeleteIcon, EditIcon } from "../../../assets/images/Icons";
 import { ModalForDelete } from "../../../components/ModalForDelete";
 import ReusableTable from "../../../components/shared/Table/Tabele";
 import { getElementServices } from "../../../services/ServicesGenerator";
-import {
-  DeleteIcon,
-  EditIcon,
-  LocationImg,
-} from "../../../assets/images/Icons";
-import { DeleteBtn, EditBtn } from "./LocationTableStyle";
-import { useLocation } from "../../../context/LocationContex";
+import { DeleteBtn, EditBtn } from "./ProductStyle";
+import { useProduct } from "../../../context/ProductContex";
+import { SwitchTable } from "../../../components/shared/switch";
 
-export const LocationTable = () => {
+export const ProductTable = () => {
   const [isOpenDeleteModal, setisOpenDeleteModal] = useState(false);
+  const setIsOpenModal = useProduct((state) => state?.setIsOpenModal);
+  const setIdForEdit = useProduct((state) => state?.setIdForEdit);
   const [deleteNumId, setDeleteNumId] = useState("");
-  const setIsOpenModal = useLocation((state) => state?.setIsOpenModal);
-  const setIdForEdit = useLocation((state) => state?.setIdForEdit);
   const { t } = useTranslation();
-  const [Location, setLocation] = useState([]);
+  const [product, setProduct] = useState([]);
 
   useEffect(() => {
-    getElementServices("/address", setLocation);
+    getElementServices("/products", setProduct);
   }, []);
 
   const columns = [
-    { id: "locatin", label: t("local.address"), width: "22%", align: "center" },
     {
-      id: "text",
-      label: t("local.text"),
-      width: "22%",
+      id: "name",
+      label: t("product.proname"),
+      width: "20%",
       align: "center",
     },
     {
-      id: "place",
-      label: t("local.place"),
-      width: "10%",
+      id: "category",
+      label: t("product.categor"),
+      width: "15%",
       align: "center",
     },
-    { id: "space", label: "", width: "100%" },
+    {
+      id: "cost",
+      label: t("product.cost"),
+      width: "19%",
+      align: "center",
+    },
+    {
+      id: "save",
+      label: t("product.download"),
+      width: "13%",
+      align: "center",
+    },
+    {
+      id: "size",
+      label: t("product.size"),
+      width: "17%",
+      align: "center",
+    },
+    {
+      id: "status",
+      label: t("product.status"),
+      width: "20%",
+      align: "center",
+    },
     { id: "edit", label: "", width: "" },
     { id: "delete", label: "", width: "" },
   ];
 
-  const rows = Location.map((item) => ({
-    locatin: item.location,
-    text: item.location,
+  const rows = product.map((item) => ({
+    name: item.name,
+    category: item.category,
+    cost: `${item.cost} $`,
+    save: `${item.weight} kg`,
+    size: item.size,
     id: item.id,
-    place: <LocationImg />,
+    status: <SwitchTable status={true} />,
     edit: (
       <EditBtn
         onClick={() => {
@@ -77,11 +99,11 @@ export const LocationTable = () => {
       <ModalForDelete
         isOpen={isOpenDeleteModal}
         setIsOpen={setisOpenDeleteModal}
-        whatDelete={"address"}
+        whatDelete={"products"}
         deleteId={deleteNumId}
       />
     </>
   );
 };
 
-export default LocationTable;
+export default ProductTable;

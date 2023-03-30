@@ -2,14 +2,19 @@ import React from "react";
 import { Route, Routes } from "react-router";
 import { Header } from "../../components/Header";
 import { SiteBar } from "../../components/SiteBar";
-import { CustomerTable } from "../CustomerTable";
+import { Customers } from "../Customers";
 import { Orders } from "../Orders";
 import { HomeMainWrap, HomeMainWrapTable, HomeWrap } from "./HomeStyle";
+
 import { Technology } from "../Technology";
 import { CarouselTable } from "../Carouseltable";
+
+import { TechnologyTable } from "../TechnologyTable/TechnologyTable";
+import { Carousel } from "../Carousel";
+
 import { Location } from "../Location";
-import { ProductTable } from "../ProductTab";
-import CategoryTable from "../CategoryTable/CategoryTable";
+import { Products } from "../Products";
+import { Category } from "../Category";
 
 export const Home = () => {
   return (
@@ -24,8 +29,14 @@ export const Home = () => {
             <Route path="toifalar" element={<CategoryTable />} />
             <Route path="mahsulotlar" element={<ProductTable />} />
             <Route path="texnologiyalar" element={<Technology />} />
+            <Route path="mahsulotlar" element={<Products />} />
+            <Route path="customers" element={<Customers />} />
+            <Route path="toifalar" element={<Category />} />
+            <Route path="customers" element={<Customers />} />
+            <Route path="toifalar" element={<Category />} />
+            <Route path="texnologiyalar" element={<TechnologyTable />} />
             <Route path="manzil" element={<Location />} />
-            <Route path="carousel" element={<CarouselTable />} />
+            <Route path="carousel" element={<Carousel />} />
           </Routes>
         </HomeMainWrapTable>
       </HomeMainWrap>
