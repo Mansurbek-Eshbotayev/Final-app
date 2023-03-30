@@ -8,13 +8,8 @@ import { HomeMainWrap, HomeMainWrapTable, HomeWrap } from "./HomeStyle";
 import { TechnologyTable } from "../TechnologyTable/TechnologyTable";
 import { Carousel } from "../Carousel";
 import { Location } from "../Location";
-
 import { Products } from "../Products";
-import CategoryTable from "../CategoryTable/CategoryTable";
-
-import { ProductTable } from "../ProductTab";
 import { Category } from "../Category";
-
 
 export const Home = () => {
   return (
@@ -25,14 +20,11 @@ export const Home = () => {
         <HomeMainWrapTable>
           <Routes>
             <Route path="buyurtmalar" element={<Orders />} />
-            <Route path="customers" element={<CustomerTable />} />
-            <Route path="toifalar" element={<CategoryTable />} />
             <Route path="mahsulotlar" element={<Products />} />
             <Route path="customers" element={<Customers />} />
             <Route path="toifalar" element={<Category />} />
             <Route path="customers" element={<Customers />} />
             <Route path="toifalar" element={<Category />} />
-            <Route path="mahsulotlar" element={<ProductTable />} />
             <Route path="texnologiyalar" element={<TechnologyTable />} />
             <Route path="manzil" element={<Location />} />
             <Route path="carousel" element={<Carousel />} />
