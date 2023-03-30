@@ -6,7 +6,7 @@ import { Customers } from "../Customers";
 import { Orders } from "../Orders";
 import { HomeMainWrap, HomeMainWrapTable, HomeWrap } from "./HomeStyle";
 import { TechnologyTable } from "../TechnologyTable";
-import { CarouselTable } from "../Carouseltable";
+import { Carousel } from "../Carousel";
 import { Location } from "../Location";
 import { ProductTable } from "../ProductTab";
 import { Category } from "../Category";
@@ -30,7 +30,7 @@ export const Home = () => {
             <Route path="mahsulotlar" element={<ProductTable />} />
             <Route path="texnologiyalar" element={<TechnologyTable />} />
             <Route path="manzil" element={<Location />} />
-            <Route path="carousel" element={<CarouselTable />} />
+            <Route path="carousel" element={<Carousel />} />
           </Routes>
         </HomeMainWrapTable>
       </HomeMainWrap>
