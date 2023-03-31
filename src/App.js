@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router";
 import { AppStyle } from "./assets/styles/AppStyle";
 import { Login } from "./components/Login/Login";
-import { Home } from "./pages/Home";
 import { ThemeProvider } from "@mui/material/styles";
-import i18n from "./lang/LangGenerator";
+import i18n from "./lang/generator/LangGenerator";
 import { useState } from "react";
-import { darkTheme, lightTheme } from "./theme/ThemeGenertor";
-import ThemeContext from "./theme/ThemeContex";
+import { darkTheme, lightTheme } from "./theme/generator/ThemeGenertor";
+import ThemeContext from "./theme/themeContex/ThemeContex";
+import { Modules } from "./pages";
 
 const token = localStorage.getItem("token");
 
@@ -22,9 +22,7 @@ function App() {
       <ThemeContext.Provider value={{ themeMode, setThemeMode }}>
         <ThemeProvider theme={theme}>
           <AppStyle theme={theme.palette.mode}>
-            <Routes>
-              <Route path="/*" element={<Home />} />
-            </Routes>
+            <Modules />
           </AppStyle>
         </ThemeProvider>
       </ThemeContext.Provider>

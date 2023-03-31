@@ -9,8 +9,8 @@ import {
   editElementServices,
   postElementServices,
 } from "../../../services/ServicesGenerator";
-import { ExitButton } from "./TechnologyStyle";
-import { FormTrchnology } from "../components/FormTrchnology";
+import { FormTrchnology } from "../components/FormTechnology/FormTrchnology";
+import { ExitButton } from "../../../assets/styles/AppStyle";
 
 export const TechnologyFormBox = () => {
   const idForEdit = useTechnology((state) => state?.idForEdit);

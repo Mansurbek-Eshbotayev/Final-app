@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import useSearchStore from "../../context/CreateZustand";
 
-import ThemeContext from "../../theme/ThemeContex";
+import ThemeContext from "../../theme/themeContex/ThemeContex";
 import { SerchLabel, SerchLabelInput } from "./SearchStyle";
 
 export const Search = () => {

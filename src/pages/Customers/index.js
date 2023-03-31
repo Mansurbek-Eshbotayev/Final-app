@@ -1,10 +1,12 @@
 import React from "react";
 import CustomerTable from "./containers/CustomerTable";
 
-export const Customers = () => {
+function Customers() {
   return (
     <>
       <CustomerTable />
     </>
   );
-};
+}
+
+export default Customers;

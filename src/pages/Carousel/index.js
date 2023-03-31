@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
-import CarouselTable from "./containers/CarouselTable";
+import { PostBtn } from "../../assets/styles/AppStyle";
 import { useCarousel } from "../../context/CarouselContex";
-import { PostBtn } from "./containers/CarouselStyle";
-import { CarouselFormBox } from "./containers/CarouselFormBox";
+import { CarouselFormBox } from "./containers/CarouselFormBox/CarouselFormBox";
+import { CarouselTable } from "./containers/CarouselTable";
 
-export const Carousel = () => {
+function Carousel() {
   const setIsOpenModal = useCarousel((state) => state?.setIsOpenModal);
   const setIdForEdit = useCarousel((state) => state?.setIdForEdit);
   const { t } = useTranslation();
@@ -25,4 +25,6 @@ export const Carousel = () => {
       <CarouselFormBox />
     </>
   );
-};
+}
+
+export default Carousel;

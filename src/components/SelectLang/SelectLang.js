@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { OptionStyle, SelectStyle } from "./SelectLangStyle";
 import { useTranslation } from "react-i18next";
-import ThemeContext from "../../theme/ThemeContex";
+import ThemeContext from "../../theme/themeContex/ThemeContex";
 
 export const SelectLang = () => {
   const { i18n } = useTranslation();

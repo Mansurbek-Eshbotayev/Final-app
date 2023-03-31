@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { TechnologyFormBox } from "./containers/TechnologyFormBox";
 import TechnologyTable from "./containers/TechnologyTable";
-import { PostBtn } from "./containers/TechnologyStyle";
 import { useTechnology } from "../../context/TechnologyContex";
+import { PostBtn } from "../../assets/styles/AppStyle";
 
-export const Technology = () => {
+function Technology() {
   const setIsOpenModal = useTechnology((state) => state?.setIsOpenModal);
   const setIdForEdit = useTechnology((state) => state?.setIdForEdit);
   const { t } = useTranslation();
@@ -25,4 +25,6 @@ export const Technology = () => {
       <TechnologyFormBox />
     </>
   );
-};
+}
+
+export default Technology;

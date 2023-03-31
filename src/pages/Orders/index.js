@@ -1,5 +1,7 @@
 import OrderTable from "./containers/OrderTable";
 
-export const Orders = () => {
+function Orders() {
   return <OrderTable />;
-};
+}
+
+export default Orders;

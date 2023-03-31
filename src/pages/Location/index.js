@@ -1,11 +1,10 @@
-import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { PostBtn } from "../../assets/styles/AppStyle";
 import { useLocation } from "../../context/LocationContex";
-import { LocationForm, LocationFormBox } from "./containers/LocationFormBox";
-import LocationTable from "./containers/LocationTable";
-import { PostBtn } from "./containers/LocationTableStyle";
+import { LocationFormBox } from "./containers/LocationFormBox/LocationFormBox";
+import LocationTable from "./containers/LocationTable/LocationTable";
 
-export const Location = () => {
+function Location() {
   const setIsOpenModal = useLocation((state) => state?.setIsOpenModal);
   const setIdForEdit = useLocation((state) => state?.setIdForEdit);
   const { t } = useTranslation();
@@ -26,4 +25,6 @@ export const Location = () => {
       <LocationFormBox />
     </>
   );
-};
+}
+
+export default Location;

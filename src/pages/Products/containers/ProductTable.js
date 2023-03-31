@@ -4,9 +4,9 @@ import { DeleteIcon, EditIcon } from "../../../assets/images/Icons";
 import { ModalForDelete } from "../../../components/ModalForDelete";
 import ReusableTable from "../../../components/shared/Table/Tabele";
 import { getElementServices } from "../../../services/ServicesGenerator";
-import { DeleteBtn, EditBtn } from "./ProductStyle";
 import { useProduct } from "../../../context/ProductContex";
 import { SwitchTable } from "../../../components/shared/switch";
+import { DeleteBtn, EditBtn } from "../../../assets/styles/AppStyle";
 
 export const ProductTable = () => {
   const [isOpenDeleteModal, setisOpenDeleteModal] = useState(false);

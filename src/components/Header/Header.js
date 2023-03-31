@@ -8,7 +8,7 @@ import Badge from "@mui/material/Badge";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import { SelectLang } from "../SelectLang";
-import { SelectTheme } from "../../theme/SelectTheme";
+import { SelectTheme } from "../SelectThema/SelectTheme";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {

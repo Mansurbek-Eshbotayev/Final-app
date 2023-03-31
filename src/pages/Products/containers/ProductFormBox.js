@@ -2,15 +2,15 @@ import { useFormik } from "formik";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { GlobalModal } from "../../../assets/styles/AppGlobalCss";
+import { ExitButton } from "../../../assets/styles/AppStyle";
 import { Modal } from "../../../components/Modal";
 import { useProduct } from "../../../context/ProductContex";
 import {
   editElementServices,
   postElementServices,
 } from "../../../services/ServicesGenerator";
-import { FormProduct } from "../components/FormProduct";
+import { FormProduct } from "../components/FormProduct/FormProduct";
 import { ProductSchema } from "../models/ProductSchema";
-import { ExitButton } from "./ProductStyle";
 
 export const ProductFormBox = () => {
   const [productId, setProductId] = useState("");

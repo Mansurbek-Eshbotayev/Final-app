@@ -1,11 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { PostBtn } from "../../assets/styles/AppStyle";
 import { useProduct } from "../../context/ProductContex";
 import { ProductFormBox } from "./containers/ProductFormBox";
-import { PostBtn } from "./containers/ProductStyle";
 import ProductTable from "./containers/ProductTable";
 
-export const Products = () => {
+function Products() {
   const setIsOpenModal = useProduct((state) => state?.setIsOpenModal);
   const setIdForEdit = useProduct((state) => state?.setIdForEdit);
   const { t } = useTranslation();
@@ -25,4 +25,6 @@ export const Products = () => {
       <ProductFormBox />
     </>
   );
-};
+}
+
+export default Products;

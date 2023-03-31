@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DeleteIcon, EditIcon } from "../../../assets/images/Icons";
+import { DeleteBtn, EditBtn } from "../../../assets/styles/AppStyle";
 import { ModalForDelete } from "../../../components/ModalForDelete";
 import MaterialTable from "../../../components/shared/Table/Tabele";
 import { useTechnology } from "../../../context/TechnologyContex";
 import { getElementServices } from "../../../services/ServicesGenerator";
-import { DeleteBtn, EditBtn } from "./TechnologyStyle";
 
 export const TechnologyTable = () => {
   const [isOpenDeleteModal, setisOpenDeleteModal] = useState(false);

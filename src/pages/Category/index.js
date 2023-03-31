@@ -1,11 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useCategory } from "../../context/CategoryContex";
-import CategoryTable from "./containers/CategoryTable";
-import { PostBtn } from "./containers/CategoryStyle";
-import { CategoryFormBox } from "./containers/CategoryFormBox";
+import CategoryTable from "./containers/CategoryTable/CategoryTable";
+import { CategoryFormBox } from "./containers/CategoryFormBox/CategoryFormBox";
+import { PostBtn } from "../../assets/styles/AppStyle";
 
-export const Category = () => {
+function Category() {
   const setIsOpenModal = useCategory((state) => state?.setIsOpenModal);
   const setIdForEdit = useCategory((state) => state?.setIdForEdit);
   const { t } = useTranslation();
@@ -25,4 +25,6 @@ export const Category = () => {
       <CategoryFormBox />
     </>
   );
-};
+}
+
+export default Category;

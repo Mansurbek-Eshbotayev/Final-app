@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DeleteIcon } from "../../../assets/images/Icons";
+import { DeleteBtn } from "../../../assets/styles/AppStyle";
 import { ModalForDelete } from "../../../components/ModalForDelete";
 import { SwitchTable } from "../../../components/shared/switch";
 import ReusableTable from "../../../components/shared/Table/Tabele";
 import { getElementServices } from "../../../services/ServicesGenerator";
-import { DeleteBtn } from "./CustomerTableStyle";
 
 export const CustomerTable = () => {
   const [isOpenDeleteModal, setisOpenDeleteModal] = useState(false);
