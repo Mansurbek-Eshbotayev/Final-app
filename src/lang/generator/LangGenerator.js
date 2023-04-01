@@ -1,5 +1,3 @@
-// import { en } from "./en";
-// import { uz } from "./uz";
 import { en, uz, ru } from "../languages";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";

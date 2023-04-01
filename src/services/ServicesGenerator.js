@@ -24,6 +24,14 @@ export const postElementServices = async (info, data) => {
   return response.data;
 };
 
+// Login post item
+
+export const postLoginServices = async (info, data, setElement) => {
+  const response = await axiosServices.post(`/${info}`, data);
+  setElement(response.data);
+  return response.data;
+};
+
 // Search item
 
 export async function searchElementServices(item, setInfo) {

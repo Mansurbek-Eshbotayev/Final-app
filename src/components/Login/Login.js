@@ -1,65 +1,37 @@
 import axios from "axios";
-import React, { useRef } from "react";
+import { useFormik } from "formik";
 import { useNavigate } from "react-router";
-import {
-  FormButton,
-  FormInputStyle,
-  FormLabelStyle,
-  FormLabelStyleSecond,
-  FormStyle,
-  FormTitleStyle,
-  Loginwrap,
-} from "./LoginStyle";
+import { FormLogin } from "./components/FormLogin";
+import { LoginSchema } from "./models/LoginSchema";
 
 export const Login = () => {
-  const valueRaf = useRef();
-  const passwordRef = useRef();
   const navigate = useNavigate();
 
-  const handlFormSubmit = (evt) => {
-    evt.preventDefault();
+  // Formik
+  const formik = useFormik({
+    initialValues: {
+      userName: "admin",
+      password: "admin",
+    },
+    onSubmit: (values) => {
+      axios
+        .post("http://localhost:1212/admin/login", {
+          userName: values.userName,
+          password: values.password,
+        })
+        .then((data) => {
+          if (data.status === 200) {
+            localStorage.setItem("token", data.data.token);
+            navigate("/buyurtmalar");
+            window.location.reload(false);
+          }
+        })
+        .catch((err) => console.log(err));
+    },
+    validationSchema: LoginSchema,
+  });
 
-    axios
-      .post("http://localhost:1212/admin/login", {
-        userName: valueRaf.current.value,
-        password: passwordRef.current.value,
-      })
-      .then((data) => {
-        if (data.status === 200) {
-          localStorage.setItem("token", data.data.token);
-          navigate("/buyurtmalar");
-        }
-        console.log(data);
-      })
-      .catch((err) => console.log(err));
-  };
+  console.log(formik.touched);
 
-  return (
-    <Loginwrap>
-      <FormStyle onSubmit={handlFormSubmit}>
-        <FormTitleStyle>Kirish</FormTitleStyle>
-        <FormLabelStyle>
-          <FormInputStyle
-            ref={valueRaf}
-            defaultValue={"admin"}
-            type="text"
-            name="your_email"
-            placeholder="Login"
-          />
-        </FormLabelStyle>
-
-        <FormLabelStyleSecond>
-          <FormInputStyle
-            ref={passwordRef}
-            defaultValue={"admin"}
-            type="password"
-            name="your_password"
-            placeholder="Parol"
-          />
-        </FormLabelStyleSecond>
-
-        <FormButton>Kirish</FormButton>
-      </FormStyle>
-    </Loginwrap>
-  );
+  return <FormLogin formik={formik} />;
 };

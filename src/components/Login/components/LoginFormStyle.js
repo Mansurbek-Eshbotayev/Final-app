@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import man from "../../assets/images/icons/man.svg";
-import Lock from "../../assets/images/icons/Lock.svg";
+import man from "../../../assets/images/icons/man.svg";
+import Lock from "../../../assets/images/icons/Lock.svg";
 
 export const Loginwrap = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ export const FormStyle = styled.form`
   padding: 35px 30px 30px 30px;
 `;
 
-export const FormTitleStyle = styled.h2`
+export const FormTitle = styled.h2`
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -30,7 +30,7 @@ export const FormTitleStyle = styled.h2`
   margin-bottom: 40px;
 `;
 
-export const FormLabelStyle = styled.label`
+export const FormLabel = styled.label`
   background-image: url(${man});
   background-repeat: no-repeat;
   background-size: contain;
@@ -40,7 +40,7 @@ export const FormLabelStyle = styled.label`
   display: block;
 `;
 
-export const FormLabelStyleSecond = styled.label`
+export const FormLabelMargin = styled.label`
   background-image: url(${Lock});
   background-repeat: no-repeat;
   background-size: contain;
@@ -50,7 +50,7 @@ export const FormLabelStyleSecond = styled.label`
   margin-bottom: 35px;
 `;
 
-export const FormInputStyle = styled.input`
+export const FormInput = styled.input`
   width: 100%;
   padding: 16px 50px;
   border: none;
@@ -75,4 +75,14 @@ export const FormButton = styled.button`
   border-radius: 7px;
   padding: 17px;
   width: 100%;
+`;
+
+export const LabeleError = styled.span`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: red;
+  display: block;
+  margin-bottom: 10px;
 `;

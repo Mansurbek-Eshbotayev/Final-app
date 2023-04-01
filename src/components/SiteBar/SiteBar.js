@@ -1,5 +1,7 @@
 import React from "react";
 import {
+  LogOutBtn,
+  LogOutWrap,
   SiteBarItem,
   SiteBarList,
   SiteBarSpan,
@@ -7,12 +9,13 @@ import {
   SiteLogoWrap,
 } from "./SiteBarStyle";
 import Logo from "../../assets/images/admin_logo.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Navbar } from "../../config/Navbar";
 
 export const SiteBar = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   return (
     <SiteBarStyle>
       <SiteLogoWrap>
@@ -33,6 +36,17 @@ export const SiteBar = () => {
           </SiteBarItem>
         ))}
       </SiteBarList>
+      <LogOutWrap>
+        <LogOutBtn
+          onClick={() => {
+            localStorage.removeItem("token");
+            navigate("/login");
+            window.location.reload(false);
+          }}
+        >
+          {t(`login.log`)}
+        </LogOutBtn>
+      </LogOutWrap>
     </SiteBarStyle>
   );
 };

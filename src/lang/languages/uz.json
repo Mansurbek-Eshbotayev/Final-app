@@ -75,5 +75,9 @@
     "add": "Qo'shish",
     "edit": "Tahrirlash",
     "status": "Holat"
+  },
+  "login": {
+    "entr": "Kirish",
+    "log": "Chiqish"
   }
 }

@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const SiteBarStyle = styled.div`
   width: 100%;
   max-width: 220px;
+  position: relative;
   height: 100vh;
   background-color: #01384d;
 `;
@@ -28,4 +29,29 @@ export const SiteBarSpan = styled.span`
   display: flex;
   align-items: center;
   margin-right: 12px;
+`;
+
+export const LogOutWrap = styled.div`
+  width: 100%;
+
+  position: absolute;
+  top: 90.5%;
+  padding: 10px 0;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+`;
+
+export const LogOutBtn = styled.button`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 15px 0 15px 32px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  background-color: #159895;
+  border: none;
+  cursor: pointer;
 `;

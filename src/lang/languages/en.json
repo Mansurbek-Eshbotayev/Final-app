@@ -75,5 +75,9 @@
     "add": "Add",
     "edit": "Edit",
     "status": "Status"
+  },
+  "login": {
+    "entr": "Access",
+    "log": "Logout"
   }
 }
