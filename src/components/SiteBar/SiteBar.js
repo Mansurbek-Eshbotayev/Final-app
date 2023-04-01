@@ -12,6 +12,7 @@ import Logo from "../../assets/images/admin_logo.svg";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Navbar } from "../../config/Navbar";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 export const SiteBar = () => {
   const { t } = useTranslation();
@@ -44,6 +45,7 @@ export const SiteBar = () => {
             window.location.reload(false);
           }}
         >
+          <LogoutIcon sx={{ fontSize: "large", marginRight: "10px" }} />
           {t(`login.log`)}
         </LogOutBtn>
       </LogOutWrap>
